@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="CPP_RZ_PIC"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CPP_RZ_PIC">
+				<Option output="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/CPP_RZ_PIC" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 CPP_RZ_PIC"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CPP_RZ_PIC/fast">
+				<Option output="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/CPP_RZ_PIC" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 CPP_RZ_PIC/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Field/Field.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Field/Field.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Field/PoissonSolver.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Field/PoissonSolver.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Grid/Grid.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Grid/Grid.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Particles/Interpolation.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Particles/Interpolation.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Particles/Particles.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Particles/Particles.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Particles/Pusher.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Particles/Pusher.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tools/Matrix.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tools/Matrix.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/main.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
