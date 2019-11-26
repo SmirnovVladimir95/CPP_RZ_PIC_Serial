@@ -32,7 +32,7 @@ void LinearFieldInterpolation(type_double efz[], type_double efr[], const type_d
 }
 
 void LinearChargeInterpolation(type_double rho[], const type_double z[], const type_double r[], const Grid& grid,
-                               type_double charge, const size_t Ntot, const type_double node_volume[]) {
+                               const type_double charge, const size_t Ntot, const type_double node_volume[]) {
     int cell_z, cell_r, Nr = grid.Nr;
     type_double hz, hr;
     //#pragma omp parallel private(hz, hr, cell_z, cell_r) num_threads(NUM_THREADS)
