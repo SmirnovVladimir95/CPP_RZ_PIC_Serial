@@ -14,7 +14,7 @@ typedef double type_double; // c++0x
 class Particles {
 private:
     Grid grid;
-    void init_node_volume(Matrix node_volume);
+    void init_node_volume(Matrix& node_volume);
 public:
     size_t Ntot;
     type_double mass;

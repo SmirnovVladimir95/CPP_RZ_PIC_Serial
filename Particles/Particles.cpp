@@ -15,6 +15,8 @@ Particles::Particles(const type_double m, const type_double q, const size_t N, c
     vy.resize(N, 0);
     efz.resize(N, 0);
     efr.resize(N, 0);
+    mfz.resize(N, 0);
+    mfr.resize(N, 0);
     Ntot = N;
     grid = init_grid;
     node_volume.resize(init_grid.Nz, init_grid.Nr);
@@ -70,7 +72,7 @@ void Particles::pusher(const type_double dt) {
     //UpdatePosition(pos_z, pos_r, vel_z, vel_r, vel_y, dt, Ntot, grid.dr);
 }
 
-void Particles::init_node_volume(Matrix node_volume) {
+void Particles::init_node_volume(Matrix& node_volume) {
     int j_min, j_max;
     float a;
     for (int i = 0; i < grid.Nz; i++) {
