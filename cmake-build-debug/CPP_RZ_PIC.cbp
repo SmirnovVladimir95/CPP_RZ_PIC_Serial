@@ -116,6 +116,24 @@
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Particles/Pusher.h">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_ChargeInterpolation.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_Compute_E_from_Phi.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_FieldInterpolation.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_FieldSolver.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_PIC_Cycle.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_Pusher.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tools/Matrix.cpp">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>

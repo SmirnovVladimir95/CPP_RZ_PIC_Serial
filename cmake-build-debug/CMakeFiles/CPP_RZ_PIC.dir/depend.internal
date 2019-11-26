@@ -33,5 +33,11 @@ CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Field/PoissonSolver.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Grid/Grid.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Particles/Particles.h
+ /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_ChargeInterpolation.h
+ /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_Compute_E_from_Phi.h
+ /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_FieldInterpolation.h
+ /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_FieldSolver.h
+ /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_PIC_Cycle.h
+ /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_Pusher.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tools/Matrix.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/main.cpp
