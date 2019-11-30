@@ -5,7 +5,7 @@
 #include "Pusher.h"
 #include "Interpolation.h"
 
-Particles::Particles(const type_double m, const type_double q, const size_t N, const Grid& init_grid) {
+Particles::Particles(type_double m, type_double q, size_t N, const Grid& init_grid) {
     mass = m;
     charge = q;
     z.resize(N, 0);
@@ -24,7 +24,7 @@ Particles::Particles(const type_double m, const type_double q, const size_t N, c
     rho.resize(init_grid.Nz, init_grid.Nr);
 }
 
-void Particles::generate_velocities(const type_double energy, const int seed) {
+void Particles::generate_velocities(type_double energy, int seed) {
     std::default_random_engine generator(seed);
     std::normal_distribution<double> distribution(0.0, sqrt(2*energy/(3*mass)));
     for (int i = 0; i < Ntot; i++) {
@@ -45,7 +45,7 @@ void Particles::generate_positions(const array<type_double, 2> &z_bounds, const 
     }
 }
 
-void Particles::vel_pusher(const type_double  dt) {
+void Particles::vel_pusher(type_double  dt) {
     auto vel_z = vz.data();
     auto vel_r = vr.data();
     auto vel_y = vy.data();
@@ -56,7 +56,7 @@ void Particles::vel_pusher(const type_double  dt) {
     UpdateVelocity(vel_z, vel_r, vel_y, Ez, Er, Bz, Br, dt, charge, mass, Ntot);
 }
 
-void Particles::pusher(const type_double dt) {
+void Particles::pusher(type_double dt) {
     auto pos_z = z.data();
     auto pos_r = r.data();
     auto vel_z = vz.data();
@@ -104,4 +104,17 @@ void Particles::charge_interpolation() {
 void Particles::set_const_magnetic_field(const vector<type_double>& Bz, const vector<type_double>& Br) {
     mfz = Bz;
     mfr = Br;
+}
+
+void Particles::append(const array<type_double, 2> &position,const array<type_double, 3> &velocity) {
+    z.push_back(position[0]);
+    r.push_back(position[1]);
+    vz.push_back(velocity[0]);
+    vr.push_back(velocity[1]);
+    vy.push_back(velocity[2]);
+    Ntot++;
+}
+
+size_t Particles::get_Ntot() const {
+    return Ntot;
 }
