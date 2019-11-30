@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollisions.cpp.o"
+  "CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NeutralGas.cpp.o"
   "CMakeFiles/CPP_RZ_PIC.dir/Field/Field.cpp.o"
   "CMakeFiles/CPP_RZ_PIC.dir/Field/PoissonSolver.cpp.o"
   "CMakeFiles/CPP_RZ_PIC.dir/Grid/Grid.cpp.o"

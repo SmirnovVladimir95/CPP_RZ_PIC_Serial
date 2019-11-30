@@ -80,6 +80,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollisions.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollisions.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Field/Field.cpp">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
@@ -128,7 +140,16 @@
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_FieldSolver.h">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_MonteCarloCollision.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_NeutralGas.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_PIC_Cycle.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_ParticlePositionVelocityGeneration.h">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_Pusher.h">

@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollisions.h
+unordered_map
+-
+../Particles/Particles.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Particles/Particles.h
+NeutralGas.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.h
+
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.h
+array
+-
+
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Field/PoissonSolver.h
 ../Tools/Matrix.h
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tools/Matrix.h
@@ -56,6 +68,20 @@ ctime
 ../Field/PoissonSolver.h
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Field/PoissonSolver.h
 
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_MonteCarloCollision.h
+../ElementaryProcesses/MonteCarloCollisions.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollisions.h
+../ElementaryProcesses/NeutralGas.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.h
+../Grid/Grid.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Grid/Grid.h
+
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_NeutralGas.h
+iostream
+-
+../ElementaryProcesses/NeutralGas.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.h
+
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_PIC_Cycle.h
 ../Tools/Matrix.h
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tools/Matrix.h
@@ -91,4 +117,8 @@ Tests/Test_PIC_Cycle.h
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_PIC_Cycle.h
 Tests/Test_Pusher.h
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_Pusher.h
+Tests/Test_MonteCarloCollision.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_MonteCarloCollision.h
+Tests/Test_NeutralGas.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_NeutralGas.h
 
