@@ -12,8 +12,8 @@ private:
     type_double sigma;
     std::unordered_map<type_double, type_double> sigma_energy;
     type_double dt;
-    NeutralGas gas;
-    Particles particles;
+    NeutralGas* gas;
+    Particles* particles;
 public:
     MonteCarloCollisions(type_double sigma, type_double dt, NeutralGas& gas, Particles& particles);
     MonteCarloCollisions(std::unordered_map<type_double, type_double> sigma, type_double dt, NeutralGas& gas,

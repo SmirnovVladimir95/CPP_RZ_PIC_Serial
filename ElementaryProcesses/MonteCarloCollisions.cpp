@@ -1,10 +1,10 @@
 #include "MonteCarloCollisions.h"
 
 MonteCarloCollisions::MonteCarloCollisions(type_double sigma, type_double dt, NeutralGas& gas, Particles& particles) :
-        sigma(sigma), particles(particles), dt(dt), gas(gas) {}
+        sigma(sigma), particles(&particles), dt(dt), gas(&gas) {}
 
 MonteCarloCollisions::MonteCarloCollisions(std::unordered_map<type_double, type_double> sigma, type_double dt,
-        NeutralGas &gas, Particles &particles) : sigma_energy(sigma), dt(dt), gas(gas), particles(particles) {}
+        NeutralGas &gas, Particles &particles) : sigma_energy(sigma), dt(dt), gas(&gas), particles(&particles) {}
 
 ElectronNeutralElasticCollisions::ElectronNeutralElasticCollisions(type_double sigma, type_double dt, NeutralGas& gas,
         Particles& particles) : MonteCarloCollisions(sigma, dt, gas, particles) {}
