@@ -12,7 +12,6 @@ void test_Charge_interpolation() {
     double dz = 2e-5, dr = 2e-5;
     Grid grid(Nz, Nr, dz, dr);
     Particles ptcls(9.1e-31, 1.6e-19, Ntot, grid);
-    cout << ptcls.Ntot << endl;
     ptcls.generate_velocities(1, seed);
     array<double, 2> z_bounds = {dr, (Nz-1)*dz};
     array<double, 2> r_bounds = {dr, (Nr-1)*dr};

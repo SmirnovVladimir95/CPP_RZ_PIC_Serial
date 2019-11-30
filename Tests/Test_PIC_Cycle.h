@@ -20,7 +20,7 @@ void test_PIC_Cycle() {
     int seed = 0, Ntot=1e6;
     Grid grid(Nz, Nr, dz, dr);
     Particles ptcls(9.1e-31, 1.6e-19, Ntot, grid);
-    cout << ptcls.Ntot << endl;
+    cout << ptcls.get_Ntot() << endl;
     ptcls.generate_velocities(1*1.6e-19, seed);
     array<double, 2> z_bounds = {dz, (Nz-2)*dz};
     array<double, 2> r_bounds = {dz, (Nr-2)*dr};

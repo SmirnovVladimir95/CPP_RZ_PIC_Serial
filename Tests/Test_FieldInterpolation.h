@@ -31,7 +31,7 @@ void test_Field_interpolation() {
         Er.fill(0);
     }
     cout << summ_time/num << endl;
-    for(int i = 0; i < ptcls.Ntot; i++)
+    for(int i = 0; i < ptcls.get_Ntot(); i++)
         cout << ptcls.efz[i] << " ";
 }
 
