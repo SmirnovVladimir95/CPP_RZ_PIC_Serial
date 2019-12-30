@@ -12,11 +12,12 @@ void test_Pusher() {
     double dz = 2e-5, dr = 2e-5;
     Grid grid(Nz, Nr, dz, dr);
     Particles ptcls(9.1e-31, 1.6e-19, 1e6, grid);
-    cout << ptcls.get_Ntot() << endl;
+    //cout << ptcls.get_Ntot() << endl;
     ptcls.generate_velocities(1*1.6e-19, seed);
     array<double, 2> z_bounds = {dz, (Nz-2)*dz};
     array<double, 2> r_bounds = {dz, (Nr-2)*dr};
-    ptcls.generate_positions(z_bounds, r_bounds, seed);
+    ptcls.generate_positions(z_bounds, r_bounds);
+    cout << ptcls.r[0] << endl;
 
     Matrix Ez(Nz, Nr);
     Matrix Er(Nz, Nr);
