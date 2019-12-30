@@ -16,7 +16,7 @@ int main() {
     //test_PIC_Cycle();
     //test_Field_solver();
     //test_Charge_interpolation();
-    //test_MonteCarloCollision();
-    test_NeutralGas();
+    test_Collisions();
+    //test_NeutralGas();
     return 0;
 }
