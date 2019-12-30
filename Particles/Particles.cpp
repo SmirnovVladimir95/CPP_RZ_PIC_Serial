@@ -116,7 +116,7 @@ void Particles::append(const array<type_double, 2> &position,const array<type_do
 }
 
 void Particles::pop(int ptcl_idx) {
-    type_double temp;
+    /*type_double temp;
     temp = z[ptcl_idx];
     z[ptcl_idx] = z[Ntot-1];
     z[Ntot-1] = temp;
@@ -124,7 +124,12 @@ void Particles::pop(int ptcl_idx) {
     r.pop_back();
     vz.pop_back();
     vr.pop_back();
-    vy.pop_back();
+    vy.pop_back();*/
+    z.erase(z.begin()+ptcl_idx);
+    r.erase(r.begin()+ptcl_idx);
+    vz.erase(vz.begin()+ptcl_idx);
+    vr.erase(vr.begin()+ptcl_idx);
+    vy.erase(vy.begin()+ptcl_idx);
     Ntot--;
 }
 
