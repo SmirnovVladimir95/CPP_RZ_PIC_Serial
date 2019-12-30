@@ -6,13 +6,12 @@
 using type_double = double;
 
 class NeutralGas {
-private:
+public:
     const type_double n;
     const type_double mass;
     const type_double T;
-public:
-    NeutralGas(const type_double n, const type_double mass, const type_double T);
-    std::array<type_double, 3> generate_velocity(const int seed=time(nullptr)) const;
+    NeutralGas(type_double n, type_double mass, type_double T);
+    std::array<type_double, 3> generate_velocity() const;
 };
 
 
