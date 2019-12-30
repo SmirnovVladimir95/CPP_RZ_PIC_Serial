@@ -80,16 +80,34 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollisions.cpp">
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/Collision.cpp">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
-		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollisions.h">
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/Collision.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollision.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollision.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NanbuCollisions.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NanbuCollisions.h">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.cpp">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NullCollisions.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NullCollisions.h">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Field/Field.cpp">

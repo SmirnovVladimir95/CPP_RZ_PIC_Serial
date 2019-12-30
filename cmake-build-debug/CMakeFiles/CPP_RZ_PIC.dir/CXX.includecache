@@ -6,13 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollisions.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/Collision.h
 unordered_map
 -
 ../Particles/Particles.h
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Particles/Particles.h
 NeutralGas.h
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.h
+
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollision.h
+vector
+-
+Collision.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/Collision.h
+
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NanbuCollisions.h
+Collision.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/Collision.h
+ctime
+-
+random
+-
+iostream
+-
 
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.h
 array
@@ -34,6 +50,8 @@ vector
 array
 -
 random
+-
+ctime
 -
 ../Tools/Matrix.h
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tools/Matrix.h
@@ -69,12 +87,18 @@ ctime
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Field/PoissonSolver.h
 
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_MonteCarloCollision.h
-../ElementaryProcesses/MonteCarloCollisions.h
-/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollisions.h
+../ElementaryProcesses/Collision.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/Collision.h
+../ElementaryProcesses/MonteCarloCollision.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollision.h
 ../ElementaryProcesses/NeutralGas.h
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.h
 ../Grid/Grid.h
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Grid/Grid.h
+../ElementaryProcesses/NanbuCollisions.h
+/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NanbuCollisions.h
+ctime
+-
 
 /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_NeutralGas.h
 iostream

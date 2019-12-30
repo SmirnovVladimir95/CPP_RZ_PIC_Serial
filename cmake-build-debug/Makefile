@@ -123,32 +123,86 @@ CPP_RZ_PIC/fast:
 	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/build
 .PHONY : CPP_RZ_PIC/fast
 
-ElementaryProcesses/MonteCarloCollisions.o: ElementaryProcesses/MonteCarloCollisions.cpp.o
+ElementaryProcesses/Collision.o: ElementaryProcesses/Collision.cpp.o
 
-.PHONY : ElementaryProcesses/MonteCarloCollisions.o
+.PHONY : ElementaryProcesses/Collision.o
 
 # target to build an object file
-ElementaryProcesses/MonteCarloCollisions.cpp.o:
-	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollisions.cpp.o
-.PHONY : ElementaryProcesses/MonteCarloCollisions.cpp.o
+ElementaryProcesses/Collision.cpp.o:
+	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/Collision.cpp.o
+.PHONY : ElementaryProcesses/Collision.cpp.o
 
-ElementaryProcesses/MonteCarloCollisions.i: ElementaryProcesses/MonteCarloCollisions.cpp.i
+ElementaryProcesses/Collision.i: ElementaryProcesses/Collision.cpp.i
 
-.PHONY : ElementaryProcesses/MonteCarloCollisions.i
+.PHONY : ElementaryProcesses/Collision.i
 
 # target to preprocess a source file
-ElementaryProcesses/MonteCarloCollisions.cpp.i:
-	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollisions.cpp.i
-.PHONY : ElementaryProcesses/MonteCarloCollisions.cpp.i
+ElementaryProcesses/Collision.cpp.i:
+	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/Collision.cpp.i
+.PHONY : ElementaryProcesses/Collision.cpp.i
 
-ElementaryProcesses/MonteCarloCollisions.s: ElementaryProcesses/MonteCarloCollisions.cpp.s
+ElementaryProcesses/Collision.s: ElementaryProcesses/Collision.cpp.s
 
-.PHONY : ElementaryProcesses/MonteCarloCollisions.s
+.PHONY : ElementaryProcesses/Collision.s
 
 # target to generate assembly for a file
-ElementaryProcesses/MonteCarloCollisions.cpp.s:
-	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollisions.cpp.s
-.PHONY : ElementaryProcesses/MonteCarloCollisions.cpp.s
+ElementaryProcesses/Collision.cpp.s:
+	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/Collision.cpp.s
+.PHONY : ElementaryProcesses/Collision.cpp.s
+
+ElementaryProcesses/MonteCarloCollision.o: ElementaryProcesses/MonteCarloCollision.cpp.o
+
+.PHONY : ElementaryProcesses/MonteCarloCollision.o
+
+# target to build an object file
+ElementaryProcesses/MonteCarloCollision.cpp.o:
+	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o
+.PHONY : ElementaryProcesses/MonteCarloCollision.cpp.o
+
+ElementaryProcesses/MonteCarloCollision.i: ElementaryProcesses/MonteCarloCollision.cpp.i
+
+.PHONY : ElementaryProcesses/MonteCarloCollision.i
+
+# target to preprocess a source file
+ElementaryProcesses/MonteCarloCollision.cpp.i:
+	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.i
+.PHONY : ElementaryProcesses/MonteCarloCollision.cpp.i
+
+ElementaryProcesses/MonteCarloCollision.s: ElementaryProcesses/MonteCarloCollision.cpp.s
+
+.PHONY : ElementaryProcesses/MonteCarloCollision.s
+
+# target to generate assembly for a file
+ElementaryProcesses/MonteCarloCollision.cpp.s:
+	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.s
+.PHONY : ElementaryProcesses/MonteCarloCollision.cpp.s
+
+ElementaryProcesses/NanbuCollisions.o: ElementaryProcesses/NanbuCollisions.cpp.o
+
+.PHONY : ElementaryProcesses/NanbuCollisions.o
+
+# target to build an object file
+ElementaryProcesses/NanbuCollisions.cpp.o:
+	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o
+.PHONY : ElementaryProcesses/NanbuCollisions.cpp.o
+
+ElementaryProcesses/NanbuCollisions.i: ElementaryProcesses/NanbuCollisions.cpp.i
+
+.PHONY : ElementaryProcesses/NanbuCollisions.i
+
+# target to preprocess a source file
+ElementaryProcesses/NanbuCollisions.cpp.i:
+	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.i
+.PHONY : ElementaryProcesses/NanbuCollisions.cpp.i
+
+ElementaryProcesses/NanbuCollisions.s: ElementaryProcesses/NanbuCollisions.cpp.s
+
+.PHONY : ElementaryProcesses/NanbuCollisions.s
+
+# target to generate assembly for a file
+ElementaryProcesses/NanbuCollisions.cpp.s:
+	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.s
+.PHONY : ElementaryProcesses/NanbuCollisions.cpp.s
 
 ElementaryProcesses/NeutralGas.o: ElementaryProcesses/NeutralGas.cpp.o
 
@@ -176,6 +230,33 @@ ElementaryProcesses/NeutralGas.s: ElementaryProcesses/NeutralGas.cpp.s
 ElementaryProcesses/NeutralGas.cpp.s:
 	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NeutralGas.cpp.s
 .PHONY : ElementaryProcesses/NeutralGas.cpp.s
+
+ElementaryProcesses/NullCollisions.o: ElementaryProcesses/NullCollisions.cpp.o
+
+.PHONY : ElementaryProcesses/NullCollisions.o
+
+# target to build an object file
+ElementaryProcesses/NullCollisions.cpp.o:
+	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o
+.PHONY : ElementaryProcesses/NullCollisions.cpp.o
+
+ElementaryProcesses/NullCollisions.i: ElementaryProcesses/NullCollisions.cpp.i
+
+.PHONY : ElementaryProcesses/NullCollisions.i
+
+# target to preprocess a source file
+ElementaryProcesses/NullCollisions.cpp.i:
+	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.i
+.PHONY : ElementaryProcesses/NullCollisions.cpp.i
+
+ElementaryProcesses/NullCollisions.s: ElementaryProcesses/NullCollisions.cpp.s
+
+.PHONY : ElementaryProcesses/NullCollisions.s
+
+# target to generate assembly for a file
+ElementaryProcesses/NullCollisions.cpp.s:
+	$(MAKE) -f CMakeFiles/CPP_RZ_PIC.dir/build.make CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.s
+.PHONY : ElementaryProcesses/NullCollisions.cpp.s
 
 Field/Field.o: Field/Field.cpp.o
 
@@ -402,12 +483,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... CPP_RZ_PIC"
-	@echo "... ElementaryProcesses/MonteCarloCollisions.o"
-	@echo "... ElementaryProcesses/MonteCarloCollisions.i"
-	@echo "... ElementaryProcesses/MonteCarloCollisions.s"
+	@echo "... ElementaryProcesses/Collision.o"
+	@echo "... ElementaryProcesses/Collision.i"
+	@echo "... ElementaryProcesses/Collision.s"
+	@echo "... ElementaryProcesses/MonteCarloCollision.o"
+	@echo "... ElementaryProcesses/MonteCarloCollision.i"
+	@echo "... ElementaryProcesses/MonteCarloCollision.s"
+	@echo "... ElementaryProcesses/NanbuCollisions.o"
+	@echo "... ElementaryProcesses/NanbuCollisions.i"
+	@echo "... ElementaryProcesses/NanbuCollisions.s"
 	@echo "... ElementaryProcesses/NeutralGas.o"
 	@echo "... ElementaryProcesses/NeutralGas.i"
 	@echo "... ElementaryProcesses/NeutralGas.s"
+	@echo "... ElementaryProcesses/NullCollisions.o"
+	@echo "... ElementaryProcesses/NullCollisions.i"
+	@echo "... ElementaryProcesses/NullCollisions.s"
 	@echo "... Field/Field.o"
 	@echo "... Field/Field.i"
 	@echo "... Field/Field.s"
