@@ -5,6 +5,7 @@
 #include <vector>
 #include <array>
 #include <random>
+#include <ctime>
 #include "../Tools/Matrix.h"
 #include "../Grid/Grid.h"
 using namespace std;
@@ -35,7 +36,10 @@ public:
     void generate_positions(const array<type_double, 2>& z_bounds, const array<type_double, 2>& r_bounds, int seed=time(nullptr));
     //vector<vector<type_double>> get_positions() const;
     //vector<vector<type_double>> get_velocities() const;
+    array<type_double, 2> get_position(int ptcl_idx) const;
+    array<type_double, 3> get_velocity(int ptcl_idx) const;
     void append(const array<type_double, 2>& position, const array<type_double, 3>& velocity);
+    void pop(int ptcl_idx);
     void pusher(type_double  dt);
     void vel_pusher(type_double  dt);
     void electric_field_interpolation(Matrix& Ez, Matrix& Er);
@@ -43,6 +47,7 @@ public:
     void set_const_magnetic_field(const vector<type_double>& Bz, const vector<type_double>& Br);
     void charge_interpolation();
     size_t get_Ntot() const;
+    void set_velocity(int ptcl_idx, array<type_double, 3> velocity);
 };
 
 

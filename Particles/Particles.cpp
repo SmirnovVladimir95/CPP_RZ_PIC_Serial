@@ -115,6 +115,35 @@ void Particles::append(const array<type_double, 2> &position,const array<type_do
     Ntot++;
 }
 
+void Particles::pop(int ptcl_idx) {
+    type_double temp;
+    temp = z[ptcl_idx];
+    z[ptcl_idx] = z[Ntot-1];
+    z[Ntot-1] = temp;
+    z.pop_back();
+    r.pop_back();
+    vz.pop_back();
+    vr.pop_back();
+    vy.pop_back();
+    Ntot--;
+}
+
+array<type_double, 2> Particles::get_position(int ptcl_idx) const {
+    array<type_double, 2> pos = {z[ptcl_idx], r[ptcl_idx]};
+    return pos;
+}
+
+array<type_double, 3> Particles::get_velocity(int ptcl_idx) const {
+    array<type_double, 3> vel = {vz[ptcl_idx], vr[ptcl_idx], vy[ptcl_idx]};
+    return vel;
+}
+
 size_t Particles::get_Ntot() const {
     return Ntot;
+}
+
+void Particles::set_velocity(int ptcl_idx, array<type_double, 3> velocity) {
+    vz[ptcl_idx] = velocity[0];
+    vr[ptcl_idx] = velocity[1];
+    vy[ptcl_idx] = velocity[2];
 }
