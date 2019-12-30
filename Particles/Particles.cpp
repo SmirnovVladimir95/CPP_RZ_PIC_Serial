@@ -112,6 +112,10 @@ void Particles::append(const array<type_double, 2> &position,const array<type_do
     vz.push_back(velocity[0]);
     vr.push_back(velocity[1]);
     vy.push_back(velocity[2]);
+    efz.push_back(0);
+    efr.push_back(0);
+    mfz.push_back(0);
+    mfr.push_back(0);
     Ntot++;
 }
 
@@ -121,6 +125,10 @@ void Particles::pop(int ptcl_idx) {
     vz.erase(vz.begin()+ptcl_idx);
     vr.erase(vr.begin()+ptcl_idx);
     vy.erase(vy.begin()+ptcl_idx);
+    efz.erase(efz.begin()+ptcl_idx);
+    efr.erase(efr.begin()+ptcl_idx);
+    mfz.erase(mfz.begin()+ptcl_idx);
+    mfr.erase(mfr.begin()+ptcl_idx);
     Ntot--;
 }
 
