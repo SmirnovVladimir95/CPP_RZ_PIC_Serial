@@ -5,7 +5,7 @@
 #include "Pusher.h"
 #include "Interpolation.h"
 
-Particles::Particles(type_double m, type_double q, size_t N, const Grid& init_grid) {
+Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid) {
     mass = m;
     charge = q;
     z.resize(N, 0);
@@ -24,9 +24,9 @@ Particles::Particles(type_double m, type_double q, size_t N, const Grid& init_gr
     rho.resize(init_grid.Nz, init_grid.Nr);
 }
 
-void Particles::generate_velocities(type_double energy, int seed) {
+void Particles::generate_velocities(scalar energy, int seed) {
     std::default_random_engine generator(seed);
-    std::normal_distribution<double> distribution(0.0, sqrt(2*energy/(3*mass)));
+    std::normal_distribution<scalar> distribution(0.0, sqrt(2*energy/(3*mass)));
     for (int i = 0; i < Ntot; i++) {
         vz[i] = distribution(generator);
         vr[i] = distribution(generator);
@@ -34,18 +34,18 @@ void Particles::generate_velocities(type_double energy, int seed) {
     }
 }
 
-void Particles::generate_positions(const array<type_double, 2> &z_bounds, const array<type_double, 2> &r_bounds,
+void Particles::generate_positions(const array<scalar, 2> &z_bounds, const array<scalar, 2> &r_bounds,
                                    const int seed) {
     std::default_random_engine generator(seed);
-    std::uniform_real_distribution<double> distribution_z(z_bounds[0],z_bounds[1]);
-    std::uniform_real_distribution<double> distribution_r(r_bounds[0],r_bounds[1]);
+    std::uniform_real_distribution<scalar> distribution_z(z_bounds[0],z_bounds[1]);
+    std::uniform_real_distribution<scalar> distribution_r(r_bounds[0],r_bounds[1]);
     for (int i = 0; i < Ntot; i++) {
         z[i] = distribution_z(generator);
         r[i] = distribution_r(generator);
     }
 }
 
-void Particles::vel_pusher(type_double  dt) {
+void Particles::vel_pusher(scalar  dt) {
     auto vel_z = vz.data();
     auto vel_r = vr.data();
     auto vel_y = vy.data();
@@ -56,7 +56,7 @@ void Particles::vel_pusher(type_double  dt) {
     UpdateVelocity(vel_z, vel_r, vel_y, Ez, Er, Bz, Br, dt, charge, mass, Ntot);
 }
 
-void Particles::pusher(type_double dt) {
+void Particles::pusher(scalar dt) {
     auto pos_z = z.data();
     auto pos_r = r.data();
     auto vel_z = vz.data();
@@ -68,8 +68,6 @@ void Particles::pusher(type_double dt) {
     auto Br = mfr.data();
     ParticlePush(pos_z, pos_r, vel_z, vel_r, vel_y, Ez, Er, Bz, Br, dt, charge, mass,
                  Ntot, grid.dr);
-    //UpdateVelocity(vel_z, vel_r, vel_y, Ez, Er, Bz, Br, dt, charge, mass, Ntot);
-    //UpdatePosition(pos_z, pos_r, vel_z, vel_r, vel_y, dt, Ntot, grid.dr);
 }
 
 void Particles::init_node_volume(Matrix& node_volume) {
@@ -101,12 +99,14 @@ void Particles::charge_interpolation() {
     LinearChargeInterpolation(rho.data_ptr(), z.data(), r.data(), grid, charge, Ntot, node_volume.data_ptr());
 }
 
-void Particles::set_const_magnetic_field(const vector<type_double>& Bz, const vector<type_double>& Br) {
-    mfz = Bz;
-    mfr = Br;
+void Particles::set_const_magnetic_field(scalar Bz, scalar Br) {
+    mfz.assign(Ntot, Bz);
+    mfr.assign(Ntot, Br);
+    mfz_const = Bz;
+    mfr_const = Br;
 }
 
-void Particles::append(const array<type_double, 2> &position,const array<type_double, 3> &velocity) {
+void Particles::append(const array<scalar, 2> &position,const array<scalar, 3> &velocity) {
     z.push_back(position[0]);
     r.push_back(position[1]);
     vz.push_back(velocity[0]);
@@ -114,8 +114,8 @@ void Particles::append(const array<type_double, 2> &position,const array<type_do
     vy.push_back(velocity[2]);
     efz.push_back(0);
     efr.push_back(0);
-    mfz.push_back(0);
-    mfr.push_back(0);
+    mfz.push_back(mfz_const);
+    mfr.push_back(mfr_const);
     Ntot++;
 }
 
@@ -132,13 +132,13 @@ void Particles::pop(int ptcl_idx) {
     Ntot--;
 }
 
-array<type_double, 2> Particles::get_position(int ptcl_idx) const {
-    array<type_double, 2> pos = {z[ptcl_idx], r[ptcl_idx]};
+array<scalar, 2> Particles::get_position(int ptcl_idx) const {
+    array<scalar, 2> pos = {z[ptcl_idx], r[ptcl_idx]};
     return pos;
 }
 
-array<type_double, 3> Particles::get_velocity(int ptcl_idx) const {
-    array<type_double, 3> vel = {vz[ptcl_idx], vr[ptcl_idx], vy[ptcl_idx]};
+array<scalar, 3> Particles::get_velocity(int ptcl_idx) const {
+    array<scalar, 3> vel = {vz[ptcl_idx], vr[ptcl_idx], vy[ptcl_idx]};
     return vel;
 }
 
@@ -146,7 +146,7 @@ size_t Particles::get_Ntot() const {
     return Ntot;
 }
 
-void Particles::set_velocity(int ptcl_idx, array<type_double, 3> velocity) {
+void Particles::set_velocity(int ptcl_idx, array<scalar, 3> velocity) {
     vz[ptcl_idx] = velocity[0];
     vr[ptcl_idx] = velocity[1];
     vy[ptcl_idx] = velocity[2];

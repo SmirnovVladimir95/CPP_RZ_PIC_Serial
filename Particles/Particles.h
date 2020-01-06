@@ -8,46 +8,46 @@
 #include <ctime>
 #include "../Tools/Matrix.h"
 #include "../Grid/Grid.h"
+#include "../Tools/ProjectTypes.h"
 using namespace std;
-
-typedef double type_double; // c++0x
 
 class Particles {
 private:
     Grid grid;
     size_t Ntot;
+    scalar mfz_const = 0, mfr_const = 0;
     void init_node_volume(Matrix& node_volume);
 public:
-    type_double mass;
-    type_double charge;
-    vector<type_double> z;
-    vector<type_double> r;
-    vector<type_double> vz;
-    vector<type_double> vr;
-    vector<type_double> vy;
-    vector<type_double> efz;
-    vector<type_double> efr;
-    vector<type_double> mfz;
-    vector<type_double> mfr;
+    scalar mass;
+    scalar charge;
+    vector<scalar> z;
+    vector<scalar> r;
+    vector<scalar> vz;
+    vector<scalar> vr;
+    vector<scalar> vy;
+    vector<scalar> efz;
+    vector<scalar> efr;
+    vector<scalar> mfz;
+    vector<scalar> mfr;
     Matrix rho;
     Matrix node_volume;
-    Particles(type_double m, type_double q, size_t N, const Grid& grid);
-    void generate_velocities(type_double energy, int seed=time(nullptr));
-    void generate_positions(const array<type_double, 2>& z_bounds, const array<type_double, 2>& r_bounds, int seed=time(nullptr));
+    Particles(scalar m, scalar q, size_t N, const Grid& grid);
+    void generate_velocities(scalar energy, int seed=time(nullptr));
+    void generate_positions(const array<scalar, 2>& z_bounds, const array<scalar, 2>& r_bounds, int seed=time(nullptr));
     //vector<vector<type_double>> get_positions() const;
     //vector<vector<type_double>> get_velocities() const;
-    array<type_double, 2> get_position(int ptcl_idx) const;
-    array<type_double, 3> get_velocity(int ptcl_idx) const;
-    void append(const array<type_double, 2>& position, const array<type_double, 3>& velocity);
+    array<scalar, 2> get_position(int ptcl_idx) const;
+    array<scalar, 3> get_velocity(int ptcl_idx) const;
+    void append(const array<scalar, 2>& position, const array<scalar, 3>& velocity);
     void pop(int ptcl_idx);
-    void pusher(type_double  dt);
-    void vel_pusher(type_double  dt);
+    void pusher(scalar  dt);
+    void vel_pusher(scalar  dt);
     void electric_field_interpolation(Matrix& Ez, Matrix& Er);
     void magnetic_field_interpolation(Matrix& Bz, Matrix& Br);
-    void set_const_magnetic_field(const vector<type_double>& Bz, const vector<type_double>& Br);
+    void set_const_magnetic_field(scalar Bz, scalar Br);
     void charge_interpolation();
     size_t get_Ntot() const;
-    void set_velocity(int ptcl_idx, array<type_double, 3> velocity);
+    void set_velocity(int ptcl_idx, array<scalar, 3> velocity);
 };
 
 
