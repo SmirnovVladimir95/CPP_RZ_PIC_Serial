@@ -8,10 +8,10 @@
 //#include <omp.h>
 //#define NUM_THREADS 100
 
-void LinearFieldInterpolation(type_double efz[], type_double efr[], const type_double z[], const type_double r[],
-                              const type_double Ez[], const type_double Er[], const Grid& grid, const size_t Ntot) {
+void LinearFieldInterpolation(scalar efz[], scalar efr[], const scalar z[], const scalar r[],
+                              const scalar Ez[], const scalar Er[], const Grid& grid, const size_t Ntot) {
     int cell_z, cell_r, Nr=grid.Nr;
-    type_double hz, hr;
+    scalar hz, hr;
     //#pragma omp parallel for private(hz, hr, cell_z, cell_r) num_threads(NUM_THREADS)
     for (int i = 0; i < Ntot; i++) {
         cell_z = floor(z[i]/grid.dz);
@@ -31,10 +31,10 @@ void LinearFieldInterpolation(type_double efz[], type_double efr[], const type_d
     }
 }
 
-void LinearChargeInterpolation(type_double rho[], const type_double z[], const type_double r[], const Grid& grid,
-                               const type_double charge, const size_t Ntot, const type_double node_volume[]) {
+void LinearChargeInterpolation(scalar rho[], const scalar z[], const scalar r[], const Grid& grid,
+                               const scalar charge, const size_t Ntot, const scalar node_volume[]) {
     int cell_z, cell_r, Nr = grid.Nr;
-    type_double hz, hr;
+    scalar hz, hr;
     //#pragma omp parallel private(hz, hr, cell_z, cell_r) num_threads(NUM_THREADS)
     //{
     //#pragma omp for

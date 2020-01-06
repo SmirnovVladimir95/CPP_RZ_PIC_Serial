@@ -5,7 +5,7 @@
 void NanbuElectronCollisionProcess(ElectronNeutralElasticCollision& collision1, Ionization& collision2,
                                    int collisions_num) {
     int collision_type, Ntot;
-    vector<type_double> prob;
+    vector<scalar> prob;
     Ntot = collision1.particles->get_Ntot();
     for (int ptcl_idx = 0; ptcl_idx < Ntot; ptcl_idx++) {
         prob.push_back(collision1.probability(ptcl_idx));
@@ -22,11 +22,9 @@ void NanbuElectronCollisionProcess(ElectronNeutralElasticCollision& collision1, 
 
 void NanbuIonCollisionProcess(IonNeutralElasticCollision& collision1, int collisions_num) {
     int collision_type, Ntot;
-    //vector<type_double> prob = {0};
-    vector<type_double> prob;
+    vector<scalar> prob;
     Ntot = collision1.particles->get_Ntot();
     for (int ptcl_idx = 0; ptcl_idx < Ntot; ptcl_idx++) {
-        //prob[ptcl_idx] = collision1.probability(ptcl_idx);
         prob.push_back(collision1.probability(ptcl_idx));
         collision_type = NanbuCollisionChoice(prob, collisions_num);
         if (collision_type == 1)
@@ -35,7 +33,7 @@ void NanbuIonCollisionProcess(IonNeutralElasticCollision& collision1, int collis
     }
 }
 
-int NanbuCollisionChoice(vector<type_double> collision_prob, int collisions_num) {
+int NanbuCollisionChoice(vector<scalar> collision_prob, int collisions_num) {
     std::random_device rd;
     std::default_random_engine generator(rd());
     std::uniform_real_distribution<double> distribution(0.0,1.0);

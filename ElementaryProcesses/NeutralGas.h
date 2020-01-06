@@ -2,16 +2,16 @@
 #define CPP_RZ_PIC_NEUTRALGAS_H
 
 #include <array>
+#include "../Tools/ProjectTypes.h"
 
-using type_double = double;
 
 class NeutralGas {
 public:
-    const type_double n;
-    const type_double mass;
-    const type_double T;
-    NeutralGas(type_double n, type_double mass, type_double T);
-    std::array<type_double, 3> generate_velocity() const;
+    const scalar n;
+    const scalar mass;
+    const scalar T;
+    NeutralGas(scalar n, scalar mass, scalar T);
+    std::array<scalar, 3> generate_velocity() const;
 };
 
 

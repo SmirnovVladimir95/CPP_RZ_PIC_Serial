@@ -8,9 +8,9 @@ size_t Matrix::rows() const { return _rows; }
 
 size_t Matrix::columns() const { return _columns; }
 
-type_double* Matrix::data_ptr() { return data.data(); }
+scalar* Matrix::data_ptr() { return data.data(); }
 
-type_double& Matrix::operator()(size_t row, size_t column) {
+scalar& Matrix::operator()(size_t row, size_t column) {
     if (row >= _rows or column >= _columns) {
         cout << "Error, index (" << row << " " << column << ") out of range (return 1st element)" << endl;
         return data[0];
@@ -27,7 +27,7 @@ void Matrix::print() {
     }
 }
 
-void Matrix::fill(const type_double value) {
+void Matrix::fill(const scalar value) {
     for (int i = 0; i < _rows; i++) {
         for (int j = 0; j < _columns; j++) {
             this->operator()(i, j) = value;

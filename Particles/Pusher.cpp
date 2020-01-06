@@ -3,14 +3,14 @@
 //#define NUM_THREADS 100
 #include "Pusher.h"
 
-void CrossProduct(const type_double v1[], const type_double v2[], type_double result[]) {
+void CrossProduct(const scalar v1[], const scalar v2[], scalar result[]) {
     result[0] = v1[1]*v2[2] - v1[2]*v2[1];
     result[1] = v1[2]*v2[0] - 1*v1[0]*v2[2];
     result[2] = v1[0]*v2[1] - v1[1]*v2[0];
 }
 
-void RotateToRZ(type_double& pos_r, type_double& pos_y, type_double& vel_r, type_double& vel_y, type_double dr) {
-    type_double r, sin_theta, cos_theta;
+void RotateToRZ(scalar& pos_r, scalar& pos_y, scalar& vel_r, scalar& vel_y, scalar dr) {
+    scalar r, sin_theta, cos_theta;
     r = sqrt(pos_r*pos_r + pos_y*pos_y);
     pos_r = r;
     if (r > dr) {
@@ -24,12 +24,12 @@ void RotateToRZ(type_double& pos_r, type_double& pos_y, type_double& vel_r, type
     vel_y = sin_theta*vel_r + cos_theta*vel_y;
 }
 
-void UpdateSingleVelocityBoris(type_double& vel_z, type_double& vel_r, type_double& vel_y, type_double Ez,
-                               type_double Er, type_double Bz, type_double Br, type_double dt, type_double q,
-                               type_double m) {
+void UpdateSingleVelocityBoris(scalar& vel_z, scalar& vel_r, scalar& vel_y, scalar Ez,
+                               scalar Er, scalar Bz, scalar Br, scalar dt, scalar q,
+                               scalar m) {
     int dim = 3;
-    type_double t[dim], s[dim], v_minus[dim], v_minus_cross[dim], v_prime[dim], v_prime_cross[dim], v_plus[dim];
-    type_double q_div_m = q/m;
+    scalar t[dim], s[dim], v_minus[dim], v_minus_cross[dim], v_prime[dim], v_prime_cross[dim], v_plus[dim];
+    scalar q_div_m = q/m;
     t[0] = q_div_m*Bz*0.5*dt;
     t[1] = q_div_m*Br*0.5*dt;
     t[2] = 0;
@@ -53,9 +53,9 @@ void UpdateSingleVelocityBoris(type_double& vel_z, type_double& vel_r, type_doub
     vel_y = v_plus[2];
 }
 
-void UpdateVelocity(type_double vel_z[], type_double vel_r[], type_double vel_y[], const type_double Ez[],
-                    const type_double Er[], const type_double Bz[], const type_double Br[],
-                    const type_double dt, const type_double q, const type_double m, const size_t Ntot) {
+void UpdateVelocity(scalar vel_z[], scalar vel_r[], scalar vel_y[], const scalar Ez[],
+                    const scalar Er[], const scalar Bz[], const scalar Br[],
+                    const scalar dt, const scalar q, const scalar m, const size_t Ntot) {
     // Loop over ptcls
     //#pragma omp for
     for (int ip = 0; ip < Ntot; ip++) {
@@ -63,9 +63,9 @@ void UpdateVelocity(type_double vel_z[], type_double vel_r[], type_double vel_y[
     }
 }
 
-void UpdatePosition(type_double pos_z[], type_double pos_r[], type_double vel_z[], type_double vel_r[],
-                    type_double vel_y[], const type_double dt, const size_t Ntot, const type_double dr) {
-    type_double pos_y_ip=0;
+void UpdatePosition(scalar pos_z[], scalar pos_r[], scalar vel_z[], scalar vel_r[],
+                    scalar vel_y[], const scalar dt, const size_t Ntot, const scalar dr) {
+    scalar pos_y_ip=0;
     // Loop over ptcls
     //#pragma omp for
     for (int ip = 0; ip < Ntot; ip++) {
@@ -76,10 +76,10 @@ void UpdatePosition(type_double pos_z[], type_double pos_r[], type_double vel_z[
     }
 }
 
-void ParticlePush(type_double pos_z[], type_double pos_r[], type_double vel_z[], type_double vel_r[],
-                  type_double vel_y[], const type_double Ez[], const type_double Er[], const type_double Bz[],
-                  const type_double Br[], const type_double dt, const type_double q, const type_double m,
-                  const size_t Ntot, const type_double dr) {
+void ParticlePush(scalar pos_z[], scalar pos_r[], scalar vel_z[], scalar vel_r[],
+                  scalar vel_y[], const scalar Ez[], const scalar Er[], const scalar Bz[],
+                  const scalar Br[], const scalar dt, const scalar q, const scalar m,
+                  const size_t Ntot, const scalar dr) {
     //#pragma omp parallel num_threads(NUM_THREADS)
     //{
         UpdateVelocity(vel_z, vel_r, vel_y, Ez, Er, Bz, Br, dt, q, m, Ntot);

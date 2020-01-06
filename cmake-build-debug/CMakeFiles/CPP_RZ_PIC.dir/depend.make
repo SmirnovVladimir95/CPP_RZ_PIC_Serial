@@ -7,14 +7,7 @@ CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/Collision.cpp.o: ../ElementaryProc
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/Collision.cpp.o: ../Grid/Grid.h
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/Collision.cpp.o: ../Particles/Particles.h
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/Collision.cpp.o: ../Tools/Matrix.h
-
-CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o: ../ElementaryProcesses/Collision.h
-CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o: ../ElementaryProcesses/MonteCarloCollision.cpp
-CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o: ../ElementaryProcesses/MonteCarloCollision.h
-CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o: ../ElementaryProcesses/NeutralGas.h
-CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o: ../Grid/Grid.h
-CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o: ../Particles/Particles.h
-CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o: ../Tools/Matrix.h
+CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/Collision.cpp.o: ../Tools/ProjectTypes.h
 
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o: ../ElementaryProcesses/Collision.h
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o: ../ElementaryProcesses/NanbuCollisions.cpp
@@ -23,9 +16,11 @@ CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o: ../Elementa
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o: ../Grid/Grid.h
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o: ../Particles/Particles.h
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o: ../Tools/Matrix.h
+CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o: ../Tools/ProjectTypes.h
 
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NeutralGas.cpp.o: ../ElementaryProcesses/NeutralGas.cpp
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NeutralGas.cpp.o: ../ElementaryProcesses/NeutralGas.h
+CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NeutralGas.cpp.o: ../Tools/ProjectTypes.h
 
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o: ../ElementaryProcesses/Collision.h
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o: ../ElementaryProcesses/NeutralGas.h
@@ -34,21 +29,40 @@ CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o: ../Elementar
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o: ../Grid/Grid.h
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o: ../Particles/Particles.h
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o: ../Tools/Matrix.h
+CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o: ../Tools/ProjectTypes.h
 
 CMakeFiles/CPP_RZ_PIC.dir/Field/Field.cpp.o: ../Field/Field.cpp
 CMakeFiles/CPP_RZ_PIC.dir/Field/Field.cpp.o: ../Field/Field.h
 CMakeFiles/CPP_RZ_PIC.dir/Field/Field.cpp.o: ../Tools/Matrix.h
+CMakeFiles/CPP_RZ_PIC.dir/Field/Field.cpp.o: ../Tools/ProjectTypes.h
 
 CMakeFiles/CPP_RZ_PIC.dir/Field/PoissonSolver.cpp.o: ../Field/PoissonSolver.cpp
 CMakeFiles/CPP_RZ_PIC.dir/Field/PoissonSolver.cpp.o: ../Tools/Matrix.h
+CMakeFiles/CPP_RZ_PIC.dir/Field/PoissonSolver.cpp.o: ../Tools/ProjectTypes.h
 
 CMakeFiles/CPP_RZ_PIC.dir/Grid/Grid.cpp.o: ../Grid/Grid.cpp
 CMakeFiles/CPP_RZ_PIC.dir/Grid/Grid.cpp.o: ../Grid/Grid.h
+CMakeFiles/CPP_RZ_PIC.dir/Grid/Grid.cpp.o: ../Tools/ProjectTypes.h
+
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.o: ../Grid/Grid.h
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.o: ../InteractionWithMaterial/ParticleEmission.cpp
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.o: ../InteractionWithMaterial/ParticleEmission.h
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.o: ../Particles/Particles.h
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.o: ../Tools/Matrix.h
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.o: ../Tools/ProjectTypes.h
+
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.o: ../Grid/Grid.h
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.o: ../InteractionWithMaterial/ParticleLeave.cpp
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.o: ../InteractionWithMaterial/ParticleLeave.h
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.o: ../Particles/Particles.h
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.o: ../Tools/Matrix.h
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.o: ../Tools/ProjectTypes.h
 
 CMakeFiles/CPP_RZ_PIC.dir/Particles/Interpolation.cpp.o: ../Grid/Grid.h
 CMakeFiles/CPP_RZ_PIC.dir/Particles/Interpolation.cpp.o: ../Particles/Interpolation.cpp
 CMakeFiles/CPP_RZ_PIC.dir/Particles/Interpolation.cpp.o: ../Particles/Interpolation.h
 CMakeFiles/CPP_RZ_PIC.dir/Particles/Interpolation.cpp.o: ../Tools/Matrix.h
+CMakeFiles/CPP_RZ_PIC.dir/Particles/Interpolation.cpp.o: ../Tools/ProjectTypes.h
 
 CMakeFiles/CPP_RZ_PIC.dir/Particles/Particles.cpp.o: ../Grid/Grid.h
 CMakeFiles/CPP_RZ_PIC.dir/Particles/Particles.cpp.o: ../Particles/Interpolation.h
@@ -56,15 +70,17 @@ CMakeFiles/CPP_RZ_PIC.dir/Particles/Particles.cpp.o: ../Particles/Particles.cpp
 CMakeFiles/CPP_RZ_PIC.dir/Particles/Particles.cpp.o: ../Particles/Particles.h
 CMakeFiles/CPP_RZ_PIC.dir/Particles/Particles.cpp.o: ../Particles/Pusher.h
 CMakeFiles/CPP_RZ_PIC.dir/Particles/Particles.cpp.o: ../Tools/Matrix.h
+CMakeFiles/CPP_RZ_PIC.dir/Particles/Particles.cpp.o: ../Tools/ProjectTypes.h
 
 CMakeFiles/CPP_RZ_PIC.dir/Particles/Pusher.cpp.o: ../Particles/Pusher.cpp
 CMakeFiles/CPP_RZ_PIC.dir/Particles/Pusher.cpp.o: ../Particles/Pusher.h
+CMakeFiles/CPP_RZ_PIC.dir/Particles/Pusher.cpp.o: ../Tools/ProjectTypes.h
 
 CMakeFiles/CPP_RZ_PIC.dir/Tools/Matrix.cpp.o: ../Tools/Matrix.cpp
 CMakeFiles/CPP_RZ_PIC.dir/Tools/Matrix.cpp.o: ../Tools/Matrix.h
+CMakeFiles/CPP_RZ_PIC.dir/Tools/Matrix.cpp.o: ../Tools/ProjectTypes.h
 
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../ElementaryProcesses/Collision.h
-CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../ElementaryProcesses/MonteCarloCollision.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../ElementaryProcesses/NanbuCollisions.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../ElementaryProcesses/NeutralGas.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Field/PoissonSolver.h
@@ -79,5 +95,6 @@ CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tests/Test_NeutralGas.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tests/Test_PIC_Cycle.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tests/Test_Pusher.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tools/Matrix.h
+CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tools/ProjectTypes.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../main.cpp
 

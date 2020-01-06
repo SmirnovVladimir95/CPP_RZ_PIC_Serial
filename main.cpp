@@ -8,15 +8,16 @@
 #include "Tests/Test_NeutralGas.h"
 using namespace std;
 
+
 int main() {
-    //test_Field_interpolation();
-    //test_Pusher();
-    //test_PIC_Cycle();
-    //test_compute_E();
-    //test_PIC_Cycle();
-    //test_Field_solver();
-    //test_Charge_interpolation();
+    test_Field_interpolation();
+    test_Pusher();
+    test_PIC_Cycle();
+    test_compute_E();
+    test_PIC_Cycle();
+    test_Field_solver();
+    test_Charge_interpolation();
     test_Collisions();
-    //test_NeutralGas();
+    test_NeutralGas();
     return 0;
 }

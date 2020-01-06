@@ -86,12 +86,6 @@
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/Collision.h">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
-		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollision.cpp">
-			<Option target="CPP_RZ_PIC"/>
-		</Unit>
-		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollision.h">
-			<Option target="CPP_RZ_PIC"/>
-		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NanbuCollisions.cpp">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
@@ -126,6 +120,18 @@
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Grid/Grid.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/InteractionWithMaterial/ParticleEmission.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/InteractionWithMaterial/ParticleEmission.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/InteractionWithMaterial/ParticleLeave.cpp">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/InteractionWithMaterial/ParticleLeave.h">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Particles/Interpolation.cpp">
@@ -177,6 +183,9 @@
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tools/Matrix.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tools/ProjectTypes.h">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/main.cpp">

@@ -5,29 +5,29 @@
 #ifndef CPP_RZ_PIC_PUSHER_H
 #define CPP_RZ_PIC_PUSHER_H
 
+#include "../Tools/ProjectTypes.h"
 using namespace std;
 
-typedef double type_double; // c++0x
 
-void CrossProduct(const type_double v1[], const type_double v2[], type_double result[]);
+void CrossProduct(const scalar v1[], const scalar v2[], scalar result[]);
 
-void RotateToRZ(type_double& pos_r, type_double& pos_y, type_double& vel_r, type_double& vel_y);
+void RotateToRZ(scalar& pos_r, scalar& pos_y, scalar& vel_r, scalar& vel_y);
 
-void UpdateSingleVelocityBoris(type_double& vel_z, type_double& vel_r, type_double& vel_y, type_double Ez,
-                               type_double Er, type_double Bz, type_double Br, type_double dt, type_double q,
-                               type_double m);
+void UpdateSingleVelocityBoris(scalar& vel_z, scalar& vel_r, scalar& vel_y, scalar Ez,
+                               scalar Er, scalar Bz, scalar Br, scalar dt, scalar q,
+                               scalar m);
 
-void UpdateVelocity(type_double vel_z[], type_double vel_r[], type_double vel_y[], const type_double Ez[],
-                    const type_double Er[], const type_double Bz[], const type_double Br[],
-                    const type_double dt, const type_double q, const type_double m, const size_t Ntot);
+void UpdateVelocity(scalar vel_z[], scalar vel_r[], scalar vel_y[], const scalar Ez[],
+                    const scalar Er[], const scalar Bz[], const scalar Br[],
+                    const scalar dt, const scalar q, const scalar m, const size_t Ntot);
 
-void UpdatePosition(type_double pos_z[], type_double pos_r[], type_double vel_z[], type_double vel_r[],
-                    type_double vel_y[], const type_double dt, const size_t Ntot, const type_double dr);
+void UpdatePosition(scalar pos_z[], scalar pos_r[], scalar vel_z[], scalar vel_r[],
+                    scalar vel_y[], const scalar dt, const size_t Ntot, const scalar dr);
 
-void ParticlePush(type_double pos_z[], type_double pos_r[], type_double vel_z[], type_double vel_r[],
-                  type_double vel_y[], const type_double Ez[], const type_double Er[], const type_double Bz[],
-                  const type_double Br[], const type_double dt, const type_double q, const type_double m,
-                  const size_t Ntot, const type_double dr);
+void ParticlePush(scalar pos_z[], scalar pos_r[], scalar vel_z[], scalar vel_r[],
+                  scalar vel_y[], const scalar Ez[], const scalar Er[], const scalar Bz[],
+                  const scalar Br[], const scalar dt, const scalar q, const scalar m,
+                  const size_t Ntot, const scalar dr);
 
 
 #endif //CPP_RZ_PIC_PUSHER_H

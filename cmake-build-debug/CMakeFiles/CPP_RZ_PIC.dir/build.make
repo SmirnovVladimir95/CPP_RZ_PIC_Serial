@@ -187,22 +187,9 @@ CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NeutralGas.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NeutralGas.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.cpp -o CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NeutralGas.cpp.s
 
-CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o: CMakeFiles/CPP_RZ_PIC.dir/flags.make
-CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o: ../ElementaryProcesses/MonteCarloCollision.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o -c /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollision.cpp
-
-CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollision.cpp > CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.i
-
-CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/MonteCarloCollision.cpp -o CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.s
-
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o: CMakeFiles/CPP_RZ_PIC.dir/flags.make
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o: ../ElementaryProcesses/NanbuCollisions.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o -c /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NanbuCollisions.cpp
 
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.i: cmake_force
@@ -215,7 +202,7 @@ CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.s: cmake_force
 
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o: CMakeFiles/CPP_RZ_PIC.dir/flags.make
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o: ../ElementaryProcesses/NullCollisions.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o -c /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NullCollisions.cpp
 
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.i: cmake_force
@@ -225,6 +212,32 @@ CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.i: cmake_force
 CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NullCollisions.cpp -o CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.s
+
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.o: CMakeFiles/CPP_RZ_PIC.dir/flags.make
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.o: ../InteractionWithMaterial/ParticleLeave.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.o -c /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/InteractionWithMaterial/ParticleLeave.cpp
+
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/InteractionWithMaterial/ParticleLeave.cpp > CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.i
+
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/InteractionWithMaterial/ParticleLeave.cpp -o CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.s
+
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.o: CMakeFiles/CPP_RZ_PIC.dir/flags.make
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.o: ../InteractionWithMaterial/ParticleEmission.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.o -c /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/InteractionWithMaterial/ParticleEmission.cpp
+
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/InteractionWithMaterial/ParticleEmission.cpp > CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.i
+
+CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/InteractionWithMaterial/ParticleEmission.cpp -o CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.s
 
 # Object files for target CPP_RZ_PIC
 CPP_RZ_PIC_OBJECTS = \
@@ -238,9 +251,10 @@ CPP_RZ_PIC_OBJECTS = \
 "CMakeFiles/CPP_RZ_PIC.dir/Particles/Interpolation.cpp.o" \
 "CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/Collision.cpp.o" \
 "CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NeutralGas.cpp.o" \
-"CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o" \
 "CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o" \
-"CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o"
+"CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o" \
+"CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.o" \
+"CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.o"
 
 # External object files for target CPP_RZ_PIC
 CPP_RZ_PIC_EXTERNAL_OBJECTS =
@@ -255,12 +269,13 @@ CPP_RZ_PIC: CMakeFiles/CPP_RZ_PIC.dir/Particles/Pusher.cpp.o
 CPP_RZ_PIC: CMakeFiles/CPP_RZ_PIC.dir/Particles/Interpolation.cpp.o
 CPP_RZ_PIC: CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/Collision.cpp.o
 CPP_RZ_PIC: CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NeutralGas.cpp.o
-CPP_RZ_PIC: CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/MonteCarloCollision.cpp.o
 CPP_RZ_PIC: CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NanbuCollisions.cpp.o
 CPP_RZ_PIC: CMakeFiles/CPP_RZ_PIC.dir/ElementaryProcesses/NullCollisions.cpp.o
+CPP_RZ_PIC: CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleLeave.cpp.o
+CPP_RZ_PIC: CMakeFiles/CPP_RZ_PIC.dir/InteractionWithMaterial/ParticleEmission.cpp.o
 CPP_RZ_PIC: CMakeFiles/CPP_RZ_PIC.dir/build.make
 CPP_RZ_PIC: CMakeFiles/CPP_RZ_PIC.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable CPP_RZ_PIC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable CPP_RZ_PIC"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CPP_RZ_PIC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

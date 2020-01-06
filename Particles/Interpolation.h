@@ -8,11 +8,11 @@
 #include "../Tools/Matrix.h"
 #include "../Grid/Grid.h"
 
-void LinearFieldInterpolation(type_double efz[], type_double efr[], const type_double z[], const type_double r[],
-                              const type_double Ez[], const type_double Er[], const Grid& grid, const size_t Ntot);
+void LinearFieldInterpolation(scalar efz[], scalar efr[], const scalar z[], const scalar r[],
+                              const scalar Ez[], const scalar Er[], const Grid& grid, const size_t Ntot);
 
-void LinearChargeInterpolation(type_double rho[], const type_double z[], const type_double r[], const Grid& grid,
-                               const type_double charge, const size_t Ntot, const type_double node_volume[]);
+void LinearChargeInterpolation(scalar rho[], const scalar z[], const scalar r[], const Grid& grid,
+                               const scalar charge, const size_t Ntot, const scalar node_volume[]);
 
 
 #endif //CPP_RZ_PIC_INTERPOLATION_H

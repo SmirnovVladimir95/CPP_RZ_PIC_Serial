@@ -6,10 +6,11 @@
 
 void test_compute_E() {
     // Field Init
+    cout << "test_compute_E: ";
     size_t Nz = 10;
     size_t Nr = 5;
     Matrix phi_Jacobi(Nz, Nr), phi_SOR(Nz, Nr), rho(Nz, Nr), radii(Nz, Nr);
-    double dz = 2e-2, dr = 2e-2, CathodeV = -100., AnodeV = 0., tolerance=1e-5, betta=1.5 ;
+    scalar dz = 2e-2, dr = 2e-2, CathodeV = -100., AnodeV = 0., tolerance=1e-5, betta=1.5 ;
     int CathodeR = Nr/2, max_iter=1e6;
     set_radii(radii, Nz, Nr, dr);
     phi_init(phi_SOR, CathodeR, CathodeV, AnodeV, -50);
@@ -20,6 +21,7 @@ void test_compute_E() {
     compute_E(Ez, Er, phi_SOR, dz, dr);
     Ez.print();
     Er.print();
+    cout << "OK" << endl;
 }
 
 #endif //CPP_RZ_PIC_TEST_COMPUTE_E_FROM_PHI_H

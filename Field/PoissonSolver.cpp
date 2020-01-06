@@ -10,7 +10,7 @@ void compute_b(Matrix& b, Matrix& rho) {
     }
 }
 
-void set_radii(Matrix& radii, int Nz, int Nr, double dr) {
+void set_radii(Matrix& radii, int Nz, int Nr, scalar dr) {
     for (int i = 0; i < Nz; i++) {
         for (int j = 0; j < Nr; j++) {
             radii(i, j) = j*dr;
@@ -18,11 +18,11 @@ void set_radii(Matrix& radii, int Nz, int Nr, double dr) {
     }
 }
 
-bool convergence(Matrix& phi, Matrix& b, Matrix& r, const double dz, const double dr,
-        const double tolerance) {
-    double res;
-    double dz2 = dz*dz;
-    double dr2 = dr*dr;
+bool convergence(Matrix& phi, Matrix& b, Matrix& r, const scalar dz, const scalar dr,
+        const scalar tolerance) {
+    scalar res;
+    scalar dz2 = dz*dz;
+    scalar dr2 = dr*dr;
     for (int i = 1; i < phi.rows()-1; i++) {
         for (int j = 1; j < phi.columns()-1; j++) {
             res = phi(i, j) - (b(i, j) + (phi(i, j-1) + phi(i, j+1))/dr2 +
@@ -36,7 +36,7 @@ bool convergence(Matrix& phi, Matrix& b, Matrix& r, const double dz, const doubl
     return true;
 }
 
-void phi_init(Matrix& phi, const int CathodeR, const double CathodeV, const double AnodeV, double value=0) {
+void phi_init(Matrix& phi, const int CathodeR, const scalar CathodeV, const scalar AnodeV, scalar value=0) {
     int Nz = phi.rows(), Nr = phi.columns();
     for(int i = 0; i < Nz; i++) {
         for(int j = 0; j < Nr; j++) {
@@ -53,13 +53,13 @@ void phi_init(Matrix& phi, const int CathodeR, const double CathodeV, const doub
     }
 }
 
-void PoissonSolverJacobi(Matrix& phi, Matrix& rho, Matrix& radii, const double dz, const double dr, const int CathodeR,
-        const double tolerance, const int max_iter=1e6, int convergence_check=10) {
+void PoissonSolverJacobi(Matrix& phi, Matrix& rho, Matrix& radii, const scalar dz, const scalar dr, const int CathodeR,
+        const scalar tolerance, const int max_iter=1e6, int convergence_check=10) {
     int Nz = phi.rows();
     int Nr = phi.columns();
     Matrix g(Nz, Nr), b(Nz, Nr);
-    double dz2 = dz*dz;
-    double dr2 = dr*dr;
+    scalar dz2 = dz*dz;
+    scalar dr2 = dr*dr;
     compute_b(b, rho);
     g.copy(phi);
     for (int it = 0; it < max_iter; it++) {
@@ -89,13 +89,13 @@ void PoissonSolverJacobi(Matrix& phi, Matrix& rho, Matrix& radii, const double d
     }
 }
 
-void PoissonSolverSOR(Matrix& phi, Matrix& rho, Matrix& radii, const double dz, const double dr, const int CathodeR,
-        const double tolerance, const int max_iter=1e6, const double betta=1.5, int convergence_check=10) {
+void PoissonSolverSOR(Matrix& phi, Matrix& rho, Matrix& radii, const scalar dz, const scalar dr, const int CathodeR,
+        const scalar tolerance, const int max_iter=1e6, const scalar betta=1.5, int convergence_check=100) {
     int Nz = phi.rows();
     int Nr = phi.columns();
     Matrix g(Nz, Nr), b(Nz, Nr);
-    double dz2 = dz*dz;
-    double dr2 = dr*dr;
+    scalar dz2 = dz*dz;
+    scalar dr2 = dr*dr;
     compute_b(b, rho);
     g.copy(phi);
     for (int it = 0; it < max_iter; it++) {
@@ -126,9 +126,9 @@ void PoissonSolverSOR(Matrix& phi, Matrix& rho, Matrix& radii, const double dz, 
     }
 }
 
-void compute_E(Matrix& Ez, Matrix& Er, Matrix& phi, const double dz, const double dr) {
-    double dz2 = dz*2;
-    double dr2 = dr*2;
+void compute_E(Matrix& Ez, Matrix& Er, Matrix& phi, const scalar dz, const scalar dr) {
+    scalar dz2 = dz*2;
+    scalar dr2 = dr*2;
     // central difference, not right on walls
     for (int i = 0; i < phi.rows(); i++) {
         for (int j = 0; j < phi.columns(); j++) {
