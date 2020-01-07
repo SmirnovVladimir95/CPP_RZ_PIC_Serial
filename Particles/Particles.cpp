@@ -119,8 +119,14 @@ void Particles::append(const array<scalar, 2> &position,const array<scalar, 3> &
     Ntot++;
 }
 
+void swap(scalar& a, scalar& b) {
+    scalar temp = a;
+    a = b;
+    b = temp;
+}
+
 void Particles::pop(int ptcl_idx) {
-    z.erase(z.begin()+ptcl_idx);
+    /*z.erase(z.begin()+ptcl_idx);
     r.erase(r.begin()+ptcl_idx);
     vz.erase(vz.begin()+ptcl_idx);
     vr.erase(vr.begin()+ptcl_idx);
@@ -128,7 +134,25 @@ void Particles::pop(int ptcl_idx) {
     efz.erase(efz.begin()+ptcl_idx);
     efr.erase(efr.begin()+ptcl_idx);
     mfz.erase(mfz.begin()+ptcl_idx);
-    mfr.erase(mfr.begin()+ptcl_idx);
+    mfr.erase(mfr.begin()+ptcl_idx);*/
+    swap(z[ptcl_idx], z[Ntot-1]);
+    swap(r[ptcl_idx], r[Ntot-1]);
+    swap(vz[ptcl_idx], vz[Ntot-1]);
+    swap(vr[ptcl_idx], vr[Ntot-1]);
+    swap(vy[ptcl_idx], vy[Ntot-1]);
+    swap(efz[ptcl_idx], efz[Ntot-1]);
+    swap(efr[ptcl_idx], efr[Ntot-1]);
+    swap(mfz[ptcl_idx], mfz[Ntot-1]);
+    swap(mfr[ptcl_idx], mfr[Ntot-1]);
+    z.pop_back();
+    r.pop_back();
+    vz.pop_back();
+    vr.pop_back();
+    vy.pop_back();
+    efz.pop_back();
+    efr.pop_back();
+    mfz.pop_back();
+    mfr.pop_back();
     Ntot--;
 }
 
