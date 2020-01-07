@@ -86,6 +86,8 @@ CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/ElementaryProcesses/NeutralGas.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Field/PoissonSolver.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Grid/Grid.h
+ /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/InteractionWithMaterial/ParticleEmission.h
+ /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/InteractionWithMaterial/ParticleLeave.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Particles/Particles.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_ChargeInterpolation.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_Compute_E_from_Phi.h
@@ -94,6 +96,8 @@ CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_MonteCarloCollision.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_NeutralGas.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_PIC_Cycle.h
+ /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_ParticleEmission.h
+ /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_ParticleLeave.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_Pusher.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tools/Matrix.h
  /Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tools/ProjectTypes.h

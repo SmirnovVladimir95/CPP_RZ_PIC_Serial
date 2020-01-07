@@ -85,6 +85,8 @@ CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../ElementaryProcesses/NanbuCollisions.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../ElementaryProcesses/NeutralGas.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Field/PoissonSolver.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Grid/Grid.h
+CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../InteractionWithMaterial/ParticleEmission.h
+CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../InteractionWithMaterial/ParticleLeave.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Particles/Particles.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tests/Test_ChargeInterpolation.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tests/Test_Compute_E_from_Phi.h
@@ -93,6 +95,8 @@ CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tests/Test_FieldSolver.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tests/Test_MonteCarloCollision.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tests/Test_NeutralGas.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tests/Test_PIC_Cycle.h
+CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tests/Test_ParticleEmission.h
+CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tests/Test_ParticleLeave.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tests/Test_Pusher.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tools/Matrix.h
 CMakeFiles/CPP_RZ_PIC.dir/main.cpp.o: ../Tools/ProjectTypes.h

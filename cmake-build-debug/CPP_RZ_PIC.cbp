@@ -173,6 +173,12 @@
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_PIC_Cycle.h">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_ParticleEmission.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
+		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_ParticleLeave.h">
+			<Option target="CPP_RZ_PIC"/>
+		</Unit>
 		<Unit filename="/Users/vladimirsmirnov/Desktop/CPP_RZ_PIC_Serial/Tests/Test_ParticlePositionVelocityGeneration.h">
 			<Option target="CPP_RZ_PIC"/>
 		</Unit>
