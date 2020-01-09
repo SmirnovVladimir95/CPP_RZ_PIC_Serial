@@ -47,11 +47,10 @@ void LinearChargeInterpolation(scalar rho[], const scalar z[], const scalar r[],
         cell_r = floor(r[i] / grid.dr);
         hz = (z[i] - cell_z * grid.dz) / grid.dz;
         hr = (r[i] - cell_r * grid.dr) / grid.dr;
-
-        rho[cell_z * Nr + cell_r] += charge * (1 - hz) * (1 - hr) / node_volume[cell_z * Nr + cell_r];
-        rho[(cell_z + 1) * Nr + cell_r] += charge * hz * (1 - hr) / node_volume[(cell_z + 1) * Nr + cell_r];
-        rho[(cell_z + 1) * Nr + cell_r + 1] += charge * hz * hr / node_volume[(cell_z + 1) * Nr + cell_r + 1];
-        rho[cell_z * Nr + cell_r + 1] += charge * (1 - hz) * hr / node_volume[cell_z * Nr + cell_r + 1];
+        rho[cell_z * Nr + cell_r] += charge * (1 - hz) * (1 - hr) / node_volume[cell_r];
+        rho[(cell_z + 1) * Nr + cell_r] += charge * hz * (1 - hr) / node_volume[cell_r];
+        rho[(cell_z + 1) * Nr + cell_r + 1] += charge * hz * hr / node_volume[cell_r + 1];
+        rho[cell_z * Nr + cell_r + 1] += charge * (1 - hz) * hr / node_volume[cell_r + 1];
     }
     //}
 }

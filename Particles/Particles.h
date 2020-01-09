@@ -16,7 +16,9 @@ private:
     Grid grid;
     size_t Ntot;
     scalar mfz_const = 0, mfr_const = 0;
-    void init_node_volume(Matrix& node_volume);
+    scalar* node_volume;
+    //Matrix node_volume;
+    void init_node_volume(scalar node_volume[]);
 public:
     scalar mass;
     scalar charge;
@@ -30,12 +32,10 @@ public:
     vector<scalar> mfz;
     vector<scalar> mfr;
     Matrix rho;
-    Matrix node_volume;
-    Particles(scalar m, scalar q, size_t N, const Grid& grid);
+    Particles(scalar m, scalar q, size_t N, const Grid& grid, bool volume_linear_correction = true);
+    ~Particles();
     void generate_velocities(scalar energy, int seed=time(nullptr));
     void generate_positions(const array<scalar, 2>& z_bounds, const array<scalar, 2>& r_bounds, int seed=time(nullptr));
-    //vector<vector<type_double>> get_positions() const;
-    //vector<vector<type_double>> get_velocities() const;
     array<scalar, 2> get_position(int ptcl_idx) const;
     array<scalar, 3> get_velocity(int ptcl_idx) const;
     void append(const array<scalar, 2>& position, const array<scalar, 3>& velocity);

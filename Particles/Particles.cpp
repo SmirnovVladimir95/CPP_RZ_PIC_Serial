@@ -5,7 +5,7 @@
 #include "Pusher.h"
 #include "Interpolation.h"
 
-Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid) {
+Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid, bool volume_linear_correction) {
     mass = m;
     charge = q;
     z.resize(N, 0);
@@ -19,7 +19,8 @@ Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid) {
     mfr.resize(N, 0);
     Ntot = N;
     grid = init_grid;
-    node_volume.resize(init_grid.Nz, init_grid.Nr);
+    //node_volume.resize(init_grid.Nz, init_grid.Nr);
+    node_volume = new scalar [init_grid.Nr];
     init_node_volume(node_volume);
     rho.resize(init_grid.Nz, init_grid.Nr);
 }
@@ -70,24 +71,55 @@ void Particles::pusher(scalar dt) {
                  Ntot, grid.dr);
 }
 
-void Particles::init_node_volume(Matrix& node_volume) {
-    int j_min, j_max;
-    float a;
-    for (int i = 0; i < grid.Nz; i++) {
-        for (int j = 0; j < grid.Nr; j++) {
-            j_min = j - 0.5;
-            j_max = j + 0.5;
-            if (j_min < 0)
-                j_min = 0;
-            if (j_max > grid.Nr - 1)
-                j_max = grid.Nr - 1;
-            if (i == 0 or i == grid.Nz - 1)
-                a = 0.5;
-            else
-                a = 1;
-            node_volume(i, j) = a*grid.dz*((j_max*grid.dr)*(j_max*grid.dr) - (j_min*grid.dr)*(j_min*grid.dr))*M_PI;
+void Particles::init_node_volume(scalar node_volume[]) {
+    scalar r_min, r_max, r_middle;
+    for (int j = 0; j < grid.Nr; j++) {
+        if (j > 0 and j < grid.Nr - 1) {
+            r_min = (j - 1) * grid.dr;
+            r_middle = j * grid.dr;
+            r_max = (j + 1) * grid.dr;
+            node_volume[j] = grid.dz * (M_PI / 3) * (r_max * (r_middle + r_max) - r_min * (r_min + r_middle));
+        } else if (j == 0) {
+            r_min = j * grid.dr;
+            r_middle = grid.dr;
+            node_volume[j] = grid.dz * (M_PI / 3) * (r_middle - r_min) * (2 * r_min + r_middle);
+        } else {
+            r_middle = (j - 1) * grid.dr;
+            r_max = j * grid.dr;
+            node_volume[j] = grid.dz * (M_PI / 3) * (r_max - r_middle) * (r_middle + 2 * r_max);
         }
     }
+    /*
+    int j_min, j_max;
+    for (int j = 0; j < grid.Nr; j++) {
+        j_min = j - 0.5;
+        j_max = j + 0.5;
+        if (j_min < 0)
+            j_min = 0;
+        if (j_max > grid.Nr - 1)
+            j_max = grid.Nr - 1;
+        node_volume[j] =
+                grid.dz * ((j_max * grid.dr) * (j_max * grid.dr) - (j_min * grid.dr) * (j_min * grid.dr)) * M_PI;
+    }*/
+        /*int j_min, j_max;
+        float a;
+        for (int i = 0; i < grid.Nz; i++) {
+            for (int j = 0; j < grid.Nr; j++) {
+                j_min = j - 0.5;
+                j_max = j + 0.5;
+                if (j_min < 0)
+                    j_min = 0;
+                if (j_max > grid.Nr - 1)
+                    j_max = grid.Nr - 1;
+                if (i == 0 or i == grid.Nz - 1)
+                    a = 0.5;
+                else
+                    a = 1;
+                node_volume(i, j) =
+                        a * grid.dz * ((j_max * grid.dr) * (j_max * grid.dr) - (j_min * grid.dr) * (j_min * grid.dr)) *
+                        M_PI;
+            }
+        }*/
 }
 
 void Particles::electric_field_interpolation(Matrix& Ez, Matrix& Er) {
@@ -96,7 +128,7 @@ void Particles::electric_field_interpolation(Matrix& Ez, Matrix& Er) {
 }
 
 void Particles::charge_interpolation() {
-    LinearChargeInterpolation(rho.data_ptr(), z.data(), r.data(), grid, charge, Ntot, node_volume.data_ptr());
+    LinearChargeInterpolation(rho.data_ptr(), z.data(), r.data(), grid, charge, Ntot, node_volume);
 }
 
 void Particles::set_const_magnetic_field(scalar Bz, scalar Br) {
@@ -174,4 +206,8 @@ void Particles::set_velocity(int ptcl_idx, array<scalar, 3> velocity) {
     vz[ptcl_idx] = velocity[0];
     vr[ptcl_idx] = velocity[1];
     vy[ptcl_idx] = velocity[2];
+}
+
+Particles::~Particles() {
+    delete [] node_volume;
 }
