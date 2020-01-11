@@ -4,24 +4,24 @@
 #include "Pusher.h"
 
 void CrossProduct(const scalar v1[], const scalar v2[], scalar result[]) {
-    result[0] = v1[1]*v2[2] - v1[2]*v2[1];
-    result[1] = v1[2]*v2[0] - 1*v1[0]*v2[2];
-    result[2] = v1[0]*v2[1] - v1[1]*v2[0];
+    result[0] = v1[1] * v2[2] - v1[2] * v2[1];
+    result[1] = v1[2] * v2[0] - v1[0] * v2[2];
+    result[2] = v1[0] * v2[1] - v1[1] * v2[0];
 }
 
 void RotateToRZ(scalar& pos_r, scalar& pos_y, scalar& vel_r, scalar& vel_y, scalar dr) {
     scalar r, sin_theta, cos_theta;
-    r = sqrt(pos_r*pos_r + pos_y*pos_y);
+    r = sqrt(pos_r * pos_r + pos_y * pos_y);
     pos_r = r;
     if (r > dr) {
         sin_theta = pos_y / r;
-        cos_theta = sqrt(1-sin_theta*sin_theta);
+        cos_theta = sqrt(1 - sin_theta * sin_theta);
     } else {
         sin_theta = 0;
         cos_theta = 1;
     }
-    vel_r = cos_theta*vel_r - sin_theta*vel_y;
-    vel_y = sin_theta*vel_r + cos_theta*vel_y;
+    vel_r = cos_theta * vel_r + sin_theta * vel_y;
+    vel_y = -1 * sin_theta * vel_r + cos_theta * vel_y;
 }
 
 void UpdateSingleVelocityBoris(scalar& vel_z, scalar& vel_r, scalar& vel_y, scalar Ez,
@@ -33,7 +33,7 @@ void UpdateSingleVelocityBoris(scalar& vel_z, scalar& vel_r, scalar& vel_y, scal
     t[0] = q_div_m*Bz*0.5*dt;
     t[1] = q_div_m*Br*0.5*dt;
     t[2] = 0;
-    double t_mag2 = t[0]*t[0] + t[1]*t[1];
+    scalar t_mag2 = t[0]*t[0] + t[1]*t[1];
     s[0] = 2*t[0]/(1+t_mag2);
     s[1] = 2*t[1]/(1+t_mag2);
     s[2] = 0;
