@@ -13,15 +13,21 @@ void RotateToRZ(scalar& pos_r, scalar& pos_y, scalar& vel_r, scalar& vel_y, scal
     scalar r, sin_theta, cos_theta;
     r = sqrt(pos_r * pos_r + pos_y * pos_y);
     pos_r = r;
-    if (r > dr) {
+    if (r > 0) {
         sin_theta = pos_y / r;
         cos_theta = sqrt(1 - sin_theta * sin_theta);
     } else {
         sin_theta = 0;
         cos_theta = 1;
     }
-    vel_r = cos_theta * vel_r + sin_theta * vel_y;
-    vel_y = -1 * sin_theta * vel_r + cos_theta * vel_y;
+    if (pos_y >= 0) {
+        vel_r = cos_theta * vel_r + sin_theta * vel_y;
+        vel_y = -1 * sin_theta * vel_r + cos_theta * vel_y;
+    }
+    else {
+        vel_r = cos_theta * vel_r - sin_theta * vel_y;
+        vel_y = sin_theta * vel_r + cos_theta * vel_y;
+    }
 }
 
 void UpdateSingleVelocityBoris(scalar& vel_z, scalar& vel_r, scalar& vel_y, scalar Ez,
