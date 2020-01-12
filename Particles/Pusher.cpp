@@ -2,6 +2,7 @@
 //#include <omp.h>
 //#define NUM_THREADS 100
 #include "Pusher.h"
+#include <iostream>
 
 void CrossProduct(const scalar v1[], const scalar v2[], scalar result[]) {
     result[0] = v1[1] * v2[2] - v1[2] * v2[1];
@@ -10,7 +11,7 @@ void CrossProduct(const scalar v1[], const scalar v2[], scalar result[]) {
 }
 
 void RotateToRZ(scalar& pos_r, scalar& pos_y, scalar& vel_r, scalar& vel_y, scalar dr) {
-    scalar r, sin_theta, cos_theta;
+    scalar r, sin_theta, cos_theta, vel_r_new, vel_y_new;
     r = sqrt(pos_r * pos_r + pos_y * pos_y);
     pos_r = r;
     if (r > 0) {
@@ -21,13 +22,15 @@ void RotateToRZ(scalar& pos_r, scalar& pos_y, scalar& vel_r, scalar& vel_y, scal
         cos_theta = 1;
     }
     if (pos_y >= 0) {
-        vel_r = cos_theta * vel_r + sin_theta * vel_y;
-        vel_y = -1 * sin_theta * vel_r + cos_theta * vel_y;
+        vel_r_new = cos_theta * vel_r + sin_theta * vel_y;
+        vel_y_new = -1 * sin_theta * vel_r + cos_theta * vel_y;
     }
     else {
-        vel_r = cos_theta * vel_r - sin_theta * vel_y;
-        vel_y = sin_theta * vel_r + cos_theta * vel_y;
+        vel_r_new = cos_theta * vel_r - sin_theta * vel_y;
+        vel_y_new = sin_theta * vel_r + cos_theta * vel_y;
     }
+    vel_r = vel_r_new;
+    vel_y = vel_y_new;
 }
 
 void UpdateSingleVelocityBoris(scalar& vel_z, scalar& vel_r, scalar& vel_y, scalar Ez,
@@ -71,13 +74,13 @@ void UpdateVelocity(scalar vel_z[], scalar vel_r[], scalar vel_y[], const scalar
 
 void UpdatePosition(scalar pos_z[], scalar pos_r[], scalar vel_z[], scalar vel_r[],
                     scalar vel_y[], const scalar dt, const size_t Ntot, const scalar dr) {
-    scalar pos_y_ip=0;
+    scalar pos_y_ip;
     // Loop over ptcls
     //#pragma omp for
     for (int ip = 0; ip < Ntot; ip++) {
         pos_z[ip] += vel_z[ip]*dt;
         pos_r[ip] += vel_r[ip]*dt;
-        pos_y_ip += vel_y[ip]*dt;
+        pos_y_ip = vel_y[ip]*dt;
         RotateToRZ(pos_r[ip], pos_y_ip, vel_r[ip], vel_y[ip], dr);
     }
 }
