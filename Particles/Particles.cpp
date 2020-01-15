@@ -5,9 +5,18 @@
 #include "Pusher.h"
 #include "Interpolation.h"
 
-Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid, bool volume_linear_correction) {
-    mass = m;
-    charge = q;
+Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid, bool volume_linear_correction,
+                     int N_per_macro) {
+    Ntot = N;
+    if (N_per_macro > 1) {
+        mass = m * N_per_macro;
+        charge = q * N_per_macro;
+        ptcls_per_macro = N_per_macro;
+    } else {
+        mass = m;
+        charge = q;
+        ptcls_per_macro = 1;
+    }
     z.resize(N, 0);
     r.resize(N, 0);
     vz.resize(N, 0);
@@ -17,7 +26,6 @@ Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid, bool v
     efr.resize(N, 0);
     mfz.resize(N, 0);
     mfr.resize(N, 0);
-    Ntot = N;
     grid = init_grid;
     node_volume.resize(init_grid.Nz, init_grid.Nr);
     init_node_volume(node_volume);
@@ -26,7 +34,7 @@ Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid, bool v
 
 void Particles::generate_velocities(scalar energy, int seed) {
     std::default_random_engine generator(seed);
-    std::normal_distribution<scalar> distribution(0.0, sqrt(2*energy/(3*mass)));
+    std::normal_distribution<scalar> distribution(0.0, sqrt(2*energy/(3*mass/ptcls_per_macro)));
     for (int i = 0; i < Ntot; i++) {
         vz[i] = distribution(generator);
         vr[i] = distribution(generator);
