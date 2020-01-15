@@ -10,7 +10,7 @@ bool convergence(Matrix& phi, Matrix& b, Matrix& r, const scalar dz, const scala
 void PoissonSolverJacobi(Matrix& phi, Matrix& rho, Matrix& radii, const scalar dz, const scalar dr, const int CathodeR,
                          const scalar tolerance, const int max_iter=1e6, int convergence_check=10);
 void PoissonSolverSOR(Matrix& phi, Matrix& rho, Matrix& radii, const scalar dz, const scalar dr, const int CathodeR,
-                      const scalar tolerance, const int max_iter=1e6, const scalar betta=1.5, int convergence_check=10);
+                      const scalar tolerance, const int max_iter=1e6, const scalar betta=1.5, int convergence_check=1);
 void compute_E(Matrix& Ez, Matrix& Er, Matrix& phi, const scalar dz, const scalar dr);
 
 #endif //CPP_RZ_PIC_POISSONSOLVER_H

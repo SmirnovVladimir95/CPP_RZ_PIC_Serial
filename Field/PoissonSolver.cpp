@@ -90,7 +90,7 @@ void PoissonSolverJacobi(Matrix& phi, Matrix& rho, Matrix& radii, const scalar d
 }
 
 void PoissonSolverSOR(Matrix& phi, Matrix& rho, Matrix& radii, const scalar dz, const scalar dr, const int CathodeR,
-        const scalar tolerance, const int max_iter=1e6, const scalar betta=1.5, int convergence_check=100) {
+        const scalar tolerance, const int max_iter=1e6, const scalar betta = 1.5, int convergence_check = 1) {
     int Nz = phi.rows();
     int Nr = phi.columns();
     Matrix g(Nz, Nr), b(Nz, Nr);
