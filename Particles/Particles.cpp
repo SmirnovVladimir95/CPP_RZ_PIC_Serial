@@ -5,8 +5,8 @@
 #include "Pusher.h"
 #include "Interpolation.h"
 
-Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid, bool volume_linear_correction,
-                     int N_per_macro) {
+Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid, scalar N_per_macro,
+                     bool volume_linear_correction) {
     Ntot = N;
     if (N_per_macro > 1) {
         mass = m * N_per_macro;
