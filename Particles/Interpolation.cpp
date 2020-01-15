@@ -1,7 +1,3 @@
-//
-// Created by Vladimir Smirnov on 06.11.2019.
-//
-
 #include "../Grid/Grid.h"
 #include <cmath>
 #include "Interpolation.h"
@@ -47,10 +43,32 @@ void LinearChargeInterpolation(scalar rho[], const scalar z[], const scalar r[],
         cell_r = floor(r[i] / grid.dr);
         hz = (z[i] - cell_z * grid.dz) / grid.dz;
         hr = (r[i] - cell_r * grid.dr) / grid.dr;
-        rho[cell_z * Nr + cell_r] += charge * (1 - hz) * (1 - hr) / node_volume[cell_r];
-        rho[(cell_z + 1) * Nr + cell_r] += charge * hz * (1 - hr) / node_volume[cell_r];
-        rho[(cell_z + 1) * Nr + cell_r + 1] += charge * hz * hr / node_volume[cell_r + 1];
-        rho[cell_z * Nr + cell_r + 1] += charge * (1 - hz) * hr / node_volume[cell_r + 1];
+        rho[cell_z * Nr + cell_r] += charge * (1 - hz) * (1 - hr) / node_volume[cell_z * Nr + cell_r];
+        rho[(cell_z + 1) * Nr + cell_r] += charge * hz * (1 - hr) / node_volume[(cell_z + 1) * Nr + cell_r];
+        rho[(cell_z + 1) * Nr + cell_r + 1] += charge * hz * hr / node_volume[(cell_z + 1) * Nr + cell_r + 1];
+        rho[cell_z * Nr + cell_r + 1] += charge * (1 - hz) * hr / node_volume[cell_z * Nr + cell_r + 1];
     }
     //}
+}
+
+void InitVolume(Matrix& node_volume, const Grid& grid) {
+    scalar r_min, r_max, r_middle;
+    for (int i = 0; i < grid.Nz; i++) {
+        for (int j = 0; j < grid.Nr; j++) {
+            if (j > 0 and j < grid.Nr - 1) {
+                r_min = (j - 1) * grid.dr;
+                r_middle = j * grid.dr;
+                r_max = (j + 1) * grid.dr;
+                node_volume(i, j) = grid.dz * (M_PI / 3) * (r_max * (r_middle + r_max) - r_min * (r_min + r_middle));
+            } else if (j == 0) {
+                r_min = j * grid.dr;
+                r_middle = grid.dr;
+                node_volume(i, j) = grid.dz * (M_PI / 3) * (r_middle - r_min) * (2 * r_min + r_middle);
+            } else {
+                r_middle = (j - 1) * grid.dr;
+                r_max = j * grid.dr;
+                node_volume(i, j) = grid.dz * (M_PI / 3) * (r_max - r_middle) * (r_middle + 2 * r_max);
+            }
+        }
+    }
 }

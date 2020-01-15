@@ -14,11 +14,12 @@ using namespace std;
 class Particles {
 private:
     Grid grid;
-    size_t Ntot;
+    size_t Ntot; // number of macro particles
+    //size_t PtclsPerCell; // number of macro particles in one grid cell
+    //size_t PtclsPerMacro; // number of particles in one macro particle
     scalar mfz_const = 0, mfr_const = 0;
-    scalar* node_volume;
-    //Matrix node_volume;
-    void init_node_volume(scalar node_volume[]);
+    Matrix node_volume;
+    void init_node_volume(Matrix& node_volume);
 public:
     scalar mass;
     scalar charge;
@@ -33,7 +34,6 @@ public:
     vector<scalar> mfr;
     Matrix rho;
     Particles(scalar m, scalar q, size_t N, const Grid& grid, bool volume_linear_correction = true);
-    ~Particles();
     void generate_velocities(scalar energy, int seed=time(nullptr));
     void generate_positions(const array<scalar, 2>& z_bounds, const array<scalar, 2>& r_bounds, int seed=time(nullptr));
     array<scalar, 2> get_position(int ptcl_idx) const;
