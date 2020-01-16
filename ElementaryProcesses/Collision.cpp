@@ -1,5 +1,6 @@
 #include "Collision.h"
 #include <cmath>
+#include <assert.h>
 #define K_b 1.380649e-23
 
 Collision::Collision(scalar sigma, scalar dt, NeutralGas& gas, Particles& particles) :
@@ -27,9 +28,9 @@ array<scalar, 3> Collision::multiplication_by_constant(array<scalar, 3> vel, sca
 array<scalar, 3> Collision::isotropic_velocity(scalar vel_module) {
     std::random_device rd;
     std::default_random_engine generator(rd());
-    std::uniform_real_distribution<double> distribution(-1.0, 1.0);
-    float theta = M_PI*distribution(generator);
-    float phi = M_PI*distribution(generator);
+    std::uniform_real_distribution<scalar> distribution(-1.0, 1.0);
+    scalar theta = M_PI*distribution(generator);
+    scalar phi = M_PI*distribution(generator);
     return {vel_module*cos(theta)*cos(phi), vel_module*cos(theta)*sin(phi), vel_module*sin(theta)};
 }
 
@@ -45,15 +46,19 @@ ElectronNeutralElasticCollision::ElectronNeutralElasticCollision(std::unordered_
 void ElectronNeutralElasticCollision::collision(int ptcl_idx) {
     std::random_device rd;
     std::default_random_engine generator(rd());
-    std::uniform_real_distribution<double> distribution(-1.0, 1.0);
-    float theta = M_PI*distribution(generator);
-    float phi = M_PI*distribution(generator);
-
+    std::uniform_real_distribution<scalar> distribution(-1.0, 1.0);
+    scalar theta = M_PI*distribution(generator);
+    scalar phi = M_PI*distribution(generator);
     scalar vel_module = velocity_module(particles->get_velocity(ptcl_idx));
+    if (1 - 2*particles->mass/gas->mass*(1-cos(theta)) < 0) {
+        cout << "ion_mass/gas_mass is too small to use electron neutral collision" << endl;
+        throw;
+    }
     scalar new_vel_module = vel_module*sqrt(1 - 2*particles->mass/gas->mass*(1-cos(theta)));
-    particles->vz[ptcl_idx] = new_vel_module*cos(theta)*cos(phi);
-    particles->vr[ptcl_idx] = new_vel_module*cos(theta)*sin(phi);
-    particles->vy[ptcl_idx] = new_vel_module*sin(theta);
+
+    array<scalar, 3> new_vel = {new_vel_module*cos(theta)*cos(phi), new_vel_module*cos(theta)*sin(phi),
+                                new_vel_module*sin(theta)};
+    particles->set_velocity(ptcl_idx, new_vel);
 }
 
 scalar ElectronNeutralElasticCollision::probability(int ptcl_idx) const {
@@ -136,8 +141,7 @@ void Ionization::collision(int ptcl_idx) {
     std::default_random_engine generator(rd());
     std::uniform_real_distribution<double> distribution(0, 1.0);
     scalar delta_E, mu;
-    array<scalar, 3> electron_vel, gas_vel, electron_vel_new, delta_vel, emitted_electron_vel, ion_vel,
-    center_mass_vel;
+    array<scalar, 3> electron_vel, gas_vel, electron_vel_new, delta_vel, emitted_electron_vel, ion_vel, center_mass_vel;
 
     mu = particles->mass * gas->mass/(particles->mass + gas->mass);
     electron_vel = particles->get_velocity(ptcl_idx);
