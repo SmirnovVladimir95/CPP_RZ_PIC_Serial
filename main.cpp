@@ -8,20 +8,23 @@
 #include "Tests/Test_NeutralGas.h"
 #include "Tests/Test_ParticleLeave.h"
 #include "Tests/Test_ParticleEmission.h"
+#include "Tests/Test_Simulation.h"
 using namespace std;
 
 
 int main() {
-    /*test_Field_interpolation();
-    test_Pusher();
-    test_PIC_Cycle();
-    test_compute_E();
-    test_PIC_Cycle();
-    test_Field_solver();
-    test_Charge_interpolation();
-    test_Collisions();
-    test_NeutralGas();*/
+    //test_Field_interpolation();
+    //test_Pusher();
+    //test_single_particle_motion();
+    //test_PIC_Cycle();
+    //test_compute_E();
+    //test_PIC_Cycle();
+    //test_Field_solver();
+    //test_Charge_interpolation();
+    //test_Collisions();
+    //test_NeutralGas();
     //test_ParticleLeave();
-    test_ParticleEmission();
+    //test_ParticleEmission();
+    test_Simulation();
     return 0;
 }
