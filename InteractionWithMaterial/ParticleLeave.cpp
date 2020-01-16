@@ -5,9 +5,7 @@ ParticleLeave::ParticleLeave(Particles &particles, Grid& grid, Matrix& domain_co
 particles(&particles), grid(&grid), domain_condition(&domain_condition) {}
 
 void ParticleLeave::leave() {
-    size_t Ntot = particles->get_Ntot();
     int ptcl_idx = 0;
-    vector<scalar> ptcl_to_delete;
     while (ptcl_idx < particles->get_Ntot()) {
         if (not out_of_domain(ptcl_idx))
             ptcl_idx++;
