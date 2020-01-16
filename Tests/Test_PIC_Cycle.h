@@ -31,7 +31,7 @@ void test_PIC_Cycle() {
     //PoissonSolverSOR(phi, ptcls.rho, radii, dz, dr, CathodeR, tolerance, max_iter, betta);
     //compute_E(Ez, Er, phi, dz, dr);
     // PIC Cycle
-    int it_num = 10;
+    int it_num = 100;
     scalar dt = 1e-12;
     clock_t start = clock();
     ptcls.vel_pusher(-0.5*dt);

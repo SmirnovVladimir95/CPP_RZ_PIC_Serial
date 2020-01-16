@@ -8,9 +8,9 @@ void test_Charge_interpolation() {
     // Particles Init
     cout << "test_Charge_interpolation: ";
     int seed = 2;
-    int Ntot = 1e1;
-    size_t Nz = 10, Nr = 5;
-    scalar dz = 2e-5, dr = 2e-5;
+    int Ntot = 1e6;
+    size_t Nz = 100, Nr = 50;
+    scalar dz = 2e-4, dr = 2e-4;
     Grid grid(Nz, Nr, dz, dr);
     Particles ptcls(9.1e-31, 1.6e-19, Ntot, grid);
     ptcls.generate_velocities(1, seed);
@@ -22,6 +22,7 @@ void test_Charge_interpolation() {
     ptcls.rho.print();
     ptcls.charge_interpolation();
     ptcls.rho.print();
+    cout << ptcls.rho(10, 10) << endl;
     cout << "OK" << endl;
 }
 

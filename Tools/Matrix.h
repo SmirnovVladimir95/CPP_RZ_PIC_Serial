@@ -6,7 +6,7 @@
 #include "ProjectTypes.h"
 using namespace std;
 
-
+//template <class Type>
 class Matrix {
 private:
     size_t _rows;
@@ -20,6 +20,7 @@ public:
     size_t columns() const;
     scalar* data_ptr();
     scalar& operator()(size_t row, size_t column);
+    Matrix operator+(Matrix& other);
     void print();
     void fill(scalar value);
     void copy(Matrix& matrix);

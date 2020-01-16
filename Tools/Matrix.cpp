@@ -13,6 +13,7 @@ scalar* Matrix::data_ptr() { return data.data(); }
 scalar& Matrix::operator()(size_t row, size_t column) {
     if (row >= _rows or column >= _columns) {
         cout << "Error, index (" << row << " " << column << ") out of range (return 1st element)" << endl;
+        throw "Error, index out of range!";
         return data[0];
     }
     return data[row * _columns + column];
@@ -47,4 +48,14 @@ void Matrix::resize(size_t rows, size_t columns) {
     data.resize(rows*columns);
     _rows = rows;
     _columns = columns;
+}
+
+Matrix Matrix::operator+(Matrix &other) {
+    Matrix tmp(_rows, _columns);
+    for (int i = 0; i < _rows; i++) {
+        for (int j = 0; j < _columns; j++) {
+            tmp(i, j) = this->operator()(i, j) + other(i, j);
+        }
+    }
+    return tmp;
 }
