@@ -8,7 +8,7 @@
 #define K_B 1.380649e-23
 
 void test_Simulation() {
-    cout << "test_Simulation: ";
+    cout << "test_Simulation: " << endl;
 
     // Grid init
     size_t Nz = 100, Nr = 50;
@@ -17,28 +17,48 @@ void test_Simulation() {
 
     // Overal particles information
     int seed;
-    int Ntot = 5e5;
+    int ptcls_per_cell = 50;
+    int Ntot = Nz * Nr * ptcls_per_cell;
     scalar init_dens = 1e14;
+    scalar z_init_min = 10 * dz, z_init_max = (Nz - 10) * dz;
+    scalar r_init_min = 10 * dr, r_init_max = (Nr - 10) * dr;
     scalar volume = Nz * dz * M_PI * Nr * dr * Nr * dr;
     scalar ptcls_per_macro = init_dens * volume / Ntot;
     cout << "ptcls_per_macro: " << ptcls_per_macro << endl;
+    cout << "num_of_macro_ptcls: " << Ntot << endl;
 
     // Electron Init
-    Ntot = 5e5;
+    seed = 1;
     scalar m_e = 9.1e-31;
     Particles electrons(9.1e-31, -1*1.6e-19, Ntot, grid, ptcls_per_macro);
     electrons.generate_velocities(1*1.6e-19, seed);
-    array<scalar, 2> z_bounds = {2*dz, (Nz-2)*dz};
-    array<scalar, 2> r_bounds = {2*dr, (Nr-2)*dr};
+    cout << "v_sigma: " << sqrt(2*1.6e-19/(3*9.1e-31)) << endl;
+    scalar v_max = sqrt(electrons.vz[0]*electrons.vz[0] + electrons.vr[0]*electrons.vr[0] + electrons.vy[0]*electrons.vy[0]);
+    scalar v_min = sqrt(electrons.vz[0]*electrons.vz[0] + electrons.vr[0]*electrons.vr[0] + electrons.vy[0]*electrons.vy[0]);
+    scalar v_temp;
+    for (int i = 0; i < electrons.get_Ntot(); i++) {
+        v_temp = sqrt(electrons.vz[i]*electrons.vz[i] + electrons.vr[i]*electrons.vr[i] + electrons.vy[i]*electrons.vy[i]);
+        if (v_temp > v_max)
+            v_max = v_temp;
+        if (v_temp < v_min)
+            v_min = v_temp;
+    }
+    cout << "energy_max: " << m_e*v_max*v_max/2/1.6e-19 << " eV" << endl;
+    cout << "energy_min: " << m_e*v_min*v_min/2/1.6e-19 << " eV" << endl;
+    array<scalar, 2> z_bounds = {z_init_min, z_init_max};
+    array<scalar, 2> r_bounds = {r_init_min, r_init_max};
     electrons.generate_positions(z_bounds, r_bounds, seed);
+    cout << "z_max: " << *max_element(electrons.z.data(), electrons.z.data()+electrons.z.size()) << endl;
+    cout << "r_max: " << *max_element(electrons.r.data(), electrons.r.data()+electrons.r.size()) << endl;
+    cout << "z_min: " << *min_element(electrons.z.data(), electrons.z.data()+electrons.z.size()) << endl;
+    cout << "r_min: " << *min_element(electrons.r.data(), electrons.r.data()+electrons.r.size()) << endl;
     electrons.set_const_magnetic_field(0.1, 0);
 
     // Ion init
-    seed = 2;
-    Ntot = 5e5;
-    scalar m_ion = 1e4*m_e;
+    seed = 3;
+    scalar m_ion = 1e2*m_e;
     Particles ions(m_ion, 1.6e-19, Ntot, grid, ptcls_per_macro);
-    scalar T_ion = 600;
+    scalar T_ion = 500;
     ions.generate_velocities((3 / 2) * K_B * T_ion, 2);
     ions.generate_positions(z_bounds, r_bounds, 2);
     ions.set_const_magnetic_field(0.1, 0);
@@ -48,9 +68,10 @@ void test_Simulation() {
     NeutralGas gas(n, m_gas, T_gas);
 
     // Collisions init
-    scalar dt_collision = 1e-10;
-    ElectronNeutralElasticCollision electron_elastic(1e-19, dt_collision, gas, electrons);
-    scalar ion_threshold = 10*1.6e-19;
+    scalar dt_collision = 1e-9;
+    //ElectronNeutralElasticCollision electron_elastic(1e-19, dt_collision, gas, electrons);
+    IonNeutralElasticCollision electron_elastic(1e-19, dt_collision, gas, electrons, false);
+    scalar ion_threshold = 1*1.6e-19;
     Ionization argon_ionization(1e-20, ion_threshold, dt_collision, gas, electrons, ions);
     IonNeutralElasticCollision ion_elastic(1e-19, dt_collision, gas, ions);
 
@@ -103,13 +124,14 @@ void test_Simulation() {
     int it_num = 100;
     scalar dt = 1e-12;
     int collision_step = dt_collision / dt;
-    int ion_step = 1;
+    cout << collision_step << endl;
+    int ion_step = 10;
     clock_t start = clock();
     electrons.vel_pusher(-0.5*dt);
     ions.vel_pusher(-0.5*dt);
     for (int it = 0; it < it_num; it++) {
-        //cout << "iter: " << it << endl;
-        cout << "Ntot ions/electrons: " << ions.get_Ntot() << " " << electrons.get_Ntot() << endl;
+        cout << "iter: " << it << endl;
+        //cout << "Ntot ions/electrons: " << ions.get_Ntot() << " " << electrons.get_Ntot() << endl;
         electrons.charge_interpolation();
         if (it % ion_step == 0)
             ions.charge_interpolation();
@@ -119,12 +141,16 @@ void test_Simulation() {
         compute_E(Ez, Er, phi, dz, dr);
         electrons.electric_field_interpolation(Ez, Er);
         electrons.pusher(dt);
-        if (it % ion_step == 0)
+        if (it % ion_step == 0) {
             ions.electric_field_interpolation(Ez, Er);
             ions.pusher(dt);
+        }
         if (it % collision_step == 0) {
-            NanbuElectronCollisionProcess(electron_elastic, argon_ionization, 2);
+            //NanbuElectronCollisionProcess(electron_elastic, argon_ionization, 2);
+            NanbuIonCollisionProcess(electron_elastic, argon_ionization, 2);
             NanbuIonCollisionProcess(ion_elastic, 1);
+            for(int i = 0; i < ions.get_Ntot(); i++)
+                cout << ions.vz[i] << " " << ions.vr[i] << " " << ions.vy[i] << endl;
         }
         electrons_leave.leave();
         if (it % ion_step == 0) {
