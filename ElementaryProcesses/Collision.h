@@ -31,18 +31,20 @@ public:
     ElectronNeutralElasticCollision(scalar sigma, scalar dt, NeutralGas& gas, Particles& particles);
     ElectronNeutralElasticCollision(std::unordered_map<scalar, scalar> sigma, scalar dt,
             NeutralGas& gas, Particles& particles);
-    void collision(int ptcl_idx);
-    scalar probability(int ptcl_idx) const;
+    void collision(int ptcl_idx) override;
+    scalar probability(int ptcl_idx) const override;
 };
 
 class IonNeutralElasticCollision : public Collision {
     // Hard-Sphere Interaction
+    bool charge_exchange;
 public:
-    IonNeutralElasticCollision(scalar sigma, scalar dt, NeutralGas& gas, Particles& particles);
+    IonNeutralElasticCollision(scalar sigma, scalar dt, NeutralGas& gas, Particles& particles,
+                               bool charge_exchange = true);
     IonNeutralElasticCollision(std::unordered_map<scalar, scalar> sigma, scalar dt,
-            NeutralGas& gas, Particles& particles);
-    void collision(int ptcl_idx);
-    scalar probability(int ptcl_idx) const;
+            NeutralGas& gas, Particles& particles, bool charge_exchange = true);
+    void collision(int ptcl_idx) override;
+    scalar probability(int ptcl_idx) const override;
 };
 
 class Ionization : public Collision {
@@ -54,8 +56,8 @@ public:
             Particles& ions);
     Ionization(const std::unordered_map<scalar, scalar>& sigma, scalar dt, NeutralGas& gas,
             Particles& electrons, Particles& ions);
-    void collision(int ptcl_idx);
-    scalar probability(int ptcl_idx) const;
+    void collision(int ptcl_idx) override;
+    scalar probability(int ptcl_idx) const override;
 };
 
 #endif //CPP_RZ_PIC_COLLISION_H

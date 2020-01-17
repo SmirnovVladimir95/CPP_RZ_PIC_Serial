@@ -17,7 +17,7 @@ void ParticleEmission::emission(int seed) {
     int Ntot = incident_particles->get_Ntot();
     default_random_engine generator(seed);
     uniform_real_distribution<scalar> distribution(0.0,1.0);
-    scalar vel_module = sqrt(2*emission_energy/emitted_particles->mass), ptcl_z, ptcl_r;
+    scalar vel_module = sqrt(2*emission_energy/emitted_particles->get_mass()), ptcl_z, ptcl_r;
     for (int ptcl_idx = 0; ptcl_idx < Ntot; ptcl_idx++) {
         if (emission_condition(ptcl_idx)) {
             if (distribution(generator) < gamma) {

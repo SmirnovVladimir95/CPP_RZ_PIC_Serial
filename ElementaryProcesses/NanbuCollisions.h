@@ -11,6 +11,8 @@ void NanbuElectronCollisionProcess(ElectronNeutralElasticCollision& collision1, 
 
 void NanbuIonCollisionProcess(IonNeutralElasticCollision& collision1, int collisions_num);
 
+void NanbuIonCollisionProcess(IonNeutralElasticCollision& collision1, Ionization& collision2, int collisions_num);
+
 int NanbuCollisionChoice(vector<scalar> collision_prob, int collisions_num);
 
 #endif //CPP_RZ_PIC_NANBUCOLLISIONS_H
