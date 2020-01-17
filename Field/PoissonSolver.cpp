@@ -120,7 +120,7 @@ void PoissonSolverSOR(Matrix& phi, Matrix& rho, Matrix& radii, const scalar dz, 
         phi.copy(g);
         // Convergence check
         if (it % convergence_check == 0 and convergence(phi, b, radii, dz, dr, tolerance)) {
-            cout << "Convergence achieved at iteration: " << it << endl;
+            //cout << "Convergence achieved at iteration: " << it << endl;
             break;
         }
     }
