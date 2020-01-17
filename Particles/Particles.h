@@ -19,9 +19,9 @@ private:
     scalar mfz_const = 0, mfr_const = 0;
     Matrix node_volume;
     void init_node_volume(Matrix& node_volume);
-public:
     scalar mass;
     scalar charge;
+public:
     vector<scalar> z;
     vector<scalar> r;
     vector<scalar> vz;
@@ -48,6 +48,9 @@ public:
     void charge_interpolation();
     size_t get_Ntot() const;
     void set_velocity(int ptcl_idx, array<scalar, 3> velocity);
+    scalar get_mass() const;
+    scalar get_charge() const;
+    scalar get_ptcl_per_macro() const;
 };
 
 

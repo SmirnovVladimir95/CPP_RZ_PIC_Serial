@@ -34,11 +34,20 @@ Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid, scalar
 
 void Particles::generate_velocities(scalar energy, int seed) {
     std::default_random_engine generator(seed);
-    std::normal_distribution<scalar> distribution(0.0, sqrt(2*energy/(3*mass/ptcls_per_macro)));
-    for (int i = 0; i < Ntot; i++) {
+    scalar _std = sqrt(2*energy/(3*mass/ptcls_per_macro));
+    std::normal_distribution<scalar> distribution(0.0, _std);
+    /*for (int i = 0; i < Ntot; i++) {
         vz[i] = distribution(generator);
         vr[i] = distribution(generator);
         vy[i] = distribution(generator);
+    }*/
+    int i = 0;
+    while (i < Ntot) {
+        vz[i] = distribution(generator);
+        vr[i] = distribution(generator);
+        vy[i] = distribution(generator);
+        if (sqrt(vz[i]*vz[i] + vr[i]*vr[i] + vy[i]*vy[i]) < _std * 3)
+            i++;
     }
 }
 
@@ -50,6 +59,10 @@ void Particles::generate_positions(const array<scalar, 2> &z_bounds, const array
     for (int i = 0; i < Ntot; i++) {
         z[i] = distribution_z(generator);
         r[i] = distribution_r(generator);
+        if (z[i] < 0 or r[i] < 0) {
+            cout << "z<0!!!!!!" << endl;
+            throw;
+        }
     }
 }
 
@@ -157,4 +170,16 @@ void Particles::set_velocity(int ptcl_idx, array<scalar, 3> velocity) {
     vz[ptcl_idx] = velocity[0];
     vr[ptcl_idx] = velocity[1];
     vy[ptcl_idx] = velocity[2];
+}
+
+scalar Particles::get_mass() const {
+    return mass/ptcls_per_macro;
+}
+
+scalar Particles::get_charge() const {
+    return charge/ptcls_per_macro;
+}
+
+scalar Particles::get_ptcl_per_macro() const {
+    return ptcls_per_macro;
 }
