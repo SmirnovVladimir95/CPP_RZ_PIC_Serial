@@ -121,7 +121,7 @@ void test_Simulation() {
     Matrix Ez(Nz, Nr), Er(Nz, Nr);
 
     // PIC cycle
-    int it_num = 100;
+    int it_num = 1000;
     scalar dt = 1e-12;
     int collision_step = dt_collision / dt;
     cout << collision_step << endl;
@@ -130,8 +130,8 @@ void test_Simulation() {
     electrons.vel_pusher(-0.5*dt);
     ions.vel_pusher(-0.5*dt);
     for (int it = 0; it < it_num; it++) {
-        cout << "iter: " << it << endl;
-        //cout << "Ntot ions/electrons: " << ions.get_Ntot() << " " << electrons.get_Ntot() << endl;
+        //cout << "iter: " << it << endl;
+        cout << "Ntot ions/electrons: " << ions.get_Ntot() << " " << electrons.get_Ntot() << endl;
         electrons.charge_interpolation();
         if (it % ion_step == 0)
             ions.charge_interpolation();
@@ -149,8 +149,6 @@ void test_Simulation() {
             //NanbuElectronCollisionProcess(electron_elastic, argon_ionization, 2);
             NanbuIonCollisionProcess(electron_elastic, argon_ionization, 2);
             NanbuIonCollisionProcess(ion_elastic, 1);
-            for(int i = 0; i < ions.get_Ntot(); i++)
-                cout << ions.vz[i] << " " << ions.vr[i] << " " << ions.vy[i] << endl;
         }
         electrons_leave.leave();
         if (it % ion_step == 0) {
