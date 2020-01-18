@@ -1,3 +1,4 @@
+#include <fstream>
 #include "Tests/Test_ChargeInterpolation.h"
 #include "Tests/Test_Compute_E_from_Phi.h"
 #include "Tests/Test_FieldInterpolation.h"
@@ -9,6 +10,9 @@
 #include "Tests/Test_ParticleLeave.h"
 #include "Tests/Test_ParticleEmission.h"
 #include "Tests/Test_Simulation.h"
+#include "Tests/Test_ElementaryProcesses.h"
+#include "Tests/Test_Logger.h"
+#include "Tests/Test_Matrix.h"
 using namespace std;
 
 
@@ -26,5 +30,10 @@ int main() {
     //test_ParticleLeave();
     //test_ParticleEmission();
     test_Simulation();
+    //test_NanbuCollisionChoice();
+    //test_MonteCarloCollisions();
+    //test_ElementaryProcesses();
+    //test_Logger();
+    //test_Matrix();
     return 0;
 }
