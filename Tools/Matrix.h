@@ -11,17 +11,23 @@ class Matrix {
 private:
     size_t _rows;
     size_t _columns;
-    //unique_ptr<matrix_type[]> data; // c++14 and higher
+    //unique_ptr<scalar[]> data; // c++14 and higher
     vector<scalar> data;
 public:
     Matrix() : _rows(0), _columns(0) {};
     Matrix(size_t rows, size_t columns);
+    Matrix(size_t rows, size_t columns, scalar value);
     size_t rows() const;
     size_t columns() const;
     scalar* data_ptr();
     scalar& operator()(size_t row, size_t column);
-    Matrix operator+(Matrix& other);
-    void print();
+    scalar operator()(size_t row, size_t column) const;
+    Matrix operator+(const Matrix& other) const;
+    Matrix operator-(const Matrix& other) const;
+    Matrix operator*(scalar value) const;
+    Matrix operator/(scalar value) const;
+    friend std::ostream& operator<<(std::ostream& out, const Matrix& matrix);
+    void print() const;
     void fill(scalar value);
     void copy(Matrix& matrix);
     void resize(size_t rows, size_t columns);
