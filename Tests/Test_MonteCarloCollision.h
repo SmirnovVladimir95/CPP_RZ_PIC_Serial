@@ -9,7 +9,7 @@
 
 
 void test_NanbuCollisionChoice() {
-    cout << "test_NanbuCollisionChoice: ";
+    cout << "test_NanbuCollisionChoice: " << endl;
     vector<scalar> prob = {1e-2, 1e-3};
     int prob_num = 2;
     int num = 1e6;
@@ -64,10 +64,10 @@ void test_MonteCarloCollisions() {
     ions.generate_velocities(T*1.38e-23);
     ions.generate_positions(z_bounds, r_bounds);
 
-    ElectronNeutralElasticCollision electron_elastic(1e-19, 1e-9, gas, electrons);
+    ElectronNeutralElasticCollision electron_elastic(1e-19, 1e-10, gas, electrons);
     scalar ion_threshold = 10*1.6e-19;
-    Ionization argon_ionization(1e-20, ion_threshold, 1e-9, gas, electrons, ions);
-    IonNeutralElasticCollision ion_elastic(1e-19, 1-9, gas, ions);
+    Ionization argon_ionization(1e-20, ion_threshold, 1e-10, gas, electrons, ions);
+    IonNeutralElasticCollision ion_elastic(1e-19, 1-10, gas, ions);
 
     cout << "Number of ptcls before collisions: " << electrons.get_Ntot() << " " << ions.get_Ntot() << endl;
     NanbuElectronCollisionProcess(electron_elastic, argon_ionization, 2);

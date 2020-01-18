@@ -121,7 +121,7 @@ void test_Simulation() {
     Matrix Ez(Nz, Nr), Er(Nz, Nr);
 
     // PIC cycle
-    int it_num = 1000;
+    int it_num = 10;
     scalar dt = 1e-12;
     int collision_step = dt_collision / dt;
     cout << collision_step << endl;
