@@ -5,6 +5,9 @@
 #include "../Particles/Particles.h"
 #include "../Field/PoissonSolver.h"
 #include "../InteractionWithMaterial/ParticleLeave.h"
+#include "../Tools/Logger.h"
+#include "../Tools/ParticlesLogger.h"
+#include <numeric>
 #define K_B 1.380649e-23
 
 void test_Simulation() {
@@ -120,8 +123,19 @@ void test_Simulation() {
     phi_init(phi, CathodeR, CathodeV, AnodeV, -50);
     Matrix Ez(Nz, Nr), Er(Nz, Nr);
 
+    // Logger
+    string phi_file = "phi.txt";
+    int average_phi_it_num = 100;
+    Matrix phi_average(Nz, Nr);
+    clear_file(phi_file);
+
+    string Ntot_file = "Ntot_(iter).txt";
+    int Ntot_step = 100, pos_step = 100, vel_step = 100, energy_step = 100;
+    ParticlesLogger electrons_logger(electrons, "electrons");
+    ParticlesLogger ions_logger(ions, "ions");
+
     // PIC cycle
-    int it_num = 10;
+    int it_num = 1000;
     scalar dt = 1e-12;
     int collision_step = dt_collision / dt;
     cout << collision_step << endl;
@@ -156,6 +170,23 @@ void test_Simulation() {
             emission_left.emission();
             emission_right.emission();
         }
+
+        if (it > it_num - average_phi_it_num) {
+            phi_average += phi;
+            if (it == it_num - 1) {
+                phi_average = phi_average / average_phi_it_num;
+                element_logging(phi, phi_file);
+            }
+        }
+
+        electrons_logger.n_total_log(it, Ntot_step);
+        ions_logger.n_total_log(it, Ntot_step);
+        electrons_logger.mean_energy_log(it, energy_step);
+        ions_logger.mean_energy_log(it, energy_step);
+        electrons_logger.position_log(it, pos_step);
+        ions_logger.position_log(it, pos_step);
+        electrons_logger.velocity_log(it, vel_step);
+        ions_logger.velocity_log(it, vel_step);
     }
     clock_t end = clock();
     scalar seconds = (scalar)(end - start) / CLOCKS_PER_SEC;
