@@ -111,3 +111,30 @@ Matrix Matrix::operator*(scalar value) const {
     }
     return tmp;
 }
+
+Matrix& Matrix::operator+=(const Matrix &other) {
+    for (int i = 0; i < _rows; i++) {
+        for (int j = 0; j < _columns; j++) {
+            this->operator()(i, j) += other(i, j);
+        }
+    }
+    return *this;
+}
+
+Matrix &Matrix::operator-=(const Matrix &other) {
+    for (int i = 0; i < _rows; i++) {
+        for (int j = 0; j < _columns; j++) {
+            this->operator()(i, j) -= other(i, j);
+        }
+    }
+    return *this;
+}
+
+Matrix &Matrix::operator/=(scalar value) {
+    for (int i = 0; i < _rows; i++) {
+        for (int j = 0; j < _columns; j++) {
+            this->operator()(i, j) /= value;
+        }
+    }
+    return *this;
+}

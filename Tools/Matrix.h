@@ -23,9 +23,12 @@ public:
     scalar& operator()(size_t row, size_t column);
     scalar operator()(size_t row, size_t column) const;
     Matrix operator+(const Matrix& other) const;
+    Matrix& operator+=(const Matrix& other);
+    Matrix& operator-=(const Matrix& other);
     Matrix operator-(const Matrix& other) const;
     Matrix operator*(scalar value) const;
     Matrix operator/(scalar value) const;
+    Matrix& operator/=(scalar value);
     friend std::ostream& operator<<(std::ostream& out, const Matrix& matrix);
     void print() const;
     void fill(scalar value);
