@@ -5,13 +5,13 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-
-
-template <class Type>
-void element_logging(const Type& element, const string& path, string end = "\n", unsigned int mode = ios::app);
+using mode_type = ios_base::openmode;
 
 template <class Type>
-void element_logging(const Type& element, const string& path, string end, unsigned int mode) {
+void element_logging(const Type& element, const string& path, string end = "\n", mode_type mode = ios::app);
+
+template <class Type>
+void element_logging(const Type& element, const string& path, string end, mode_type mode) {
     ofstream output(path, mode);
     if (output) {
         output << element << end;
