@@ -29,8 +29,6 @@ ParticlesLogger::ParticlesLogger(Particles& particles, const string& observerID)
 void ParticlesLogger::n_total_log(int iter, int step, unsigned int mode) {
     if (iter_check(iter, step))
         return;
-    //element_logging(iter, n_total_file, " ", mode);
-    //element_logging(particles->get_Ntot(), n_total_file, "\n");
     n_total_output << iter << " ";
     n_total_output << particles->get_Ntot() << endl;
 }
@@ -48,8 +46,6 @@ void ParticlesLogger::mean_energy_log(int iter, int step, unsigned int mode) {
         mean_energy += particles->get_mass() * vel_2 / (2 * EV);
     }
     mean_energy /= Ntot;
-    //element_logging(iter, mean_energy_file, " ", mode);
-    //element_logging(average_energy, mean_energy_file, "\n");
     mean_energy_output << iter << " ";
     mean_energy_output << mean_energy << endl;
 }
@@ -57,14 +53,11 @@ void ParticlesLogger::mean_energy_log(int iter, int step, unsigned int mode) {
 void ParticlesLogger::velocity_log(int iter, int step, unsigned int mode) {
     if (iter_check(iter, step) or iter == 0)
         return;
-    //element_logging(iter, velocity_file, "\n", mode);
     velocity_output << iter << endl;
     for (int ptcl_idx = 0; ptcl_idx < particles->get_Ntot(); ptcl_idx++) {
         for (auto v: particles->get_velocity(ptcl_idx)) {
-            //element_logging(v, velocity_file, " ");
             velocity_output << v << " ";
         }
-        //element_logging("", velocity_file, "\n");
         velocity_output << endl;
     }
 }
@@ -72,14 +65,11 @@ void ParticlesLogger::velocity_log(int iter, int step, unsigned int mode) {
 void ParticlesLogger::position_log(int iter, int step, unsigned int mode) {
     if (iter_check(iter, step) or iter == 0)
         return;
-    //element_logging(iter, position_file, "\n", mode);
     position_output << iter << endl;
     for (int ptcl_idx = 0; ptcl_idx < particles->get_Ntot(); ptcl_idx++) {
         for (auto pos: particles->get_position(ptcl_idx)) {
-            //element_logging(pos, position_file, " ");
             position_output << pos << " ";
         }
-        //element_logging("", position_file, "\n");
         position_output << endl;
     }
 }
