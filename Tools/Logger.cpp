@@ -13,8 +13,5 @@ void clear_file(const string& path) {
 
 bool check_file(const string &path) {
     ifstream file(path);
-    if (file) {
-        return true;
-    }
-    return false;
+    return file.is_open();
 }
