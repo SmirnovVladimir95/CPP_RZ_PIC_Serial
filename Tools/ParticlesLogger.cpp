@@ -36,10 +36,10 @@ void ParticlesLogger::n_total_log(int iter, int step, unsigned int mode) {
 void ParticlesLogger::mean_energy_log(int iter, int step, unsigned int mode) {
     if (iter_check(iter, step))
         return;
-    scalar mean_energy = 0;
-    scalar vel_2 = 0;
+    scalar mean_energy = 0, vel_2;
     int Ntot = particles->get_Ntot();
     for (int ptcl_idx = 0; ptcl_idx < Ntot; ptcl_idx++) {
+        vel_2 = 0;
         for (auto v : particles->get_velocity(ptcl_idx)) {
             vel_2 += v*v;
         }
