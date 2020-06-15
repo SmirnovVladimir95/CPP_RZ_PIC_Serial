@@ -1,13 +1,17 @@
 #include "../Tools/Matrix.h"
 #include <cmath>
+#include "_PoissonSolver.h"
 #define epsilon_0 8.854187817620389e-12
 
 void compute_b(Matrix& b, Matrix& rho) {
+    _compute_b(b.data_ptr(), rho.data_ptr(), rho.rows(), rho.columns());
+    /*
     for (int i = 0; i < rho.rows(); i++) {
         for (int j = 0; j < rho.columns(); j++) {
             b(i, j) = rho(i, j) / epsilon_0;
         }
     }
+    */
 }
 
 void set_radii(Matrix& radii, int Nz, int Nr, scalar dr) {
@@ -91,6 +95,11 @@ void PoissonSolverJacobi(Matrix& phi, Matrix& rho, Matrix& radii, const scalar d
 
 void PoissonSolverSOR(Matrix& phi, Matrix& rho, Matrix& radii, const scalar dz, const scalar dr, const int CathodeR,
         const scalar tolerance, const int max_iter=1e6, const scalar betta = 1.5, int convergence_check = 1) {
+    _PoissonSolverSOR(phi.data_ptr(), rho.data_ptr(), radii.data_ptr(), phi.rows(), phi.columns(), dz, dr, CathodeR,
+                      tolerance, max_iter, betta, convergence_check);
+    //_PoissonSolverSOR_Improved(phi.data_ptr(), rho.data_ptr(), radii.data_ptr(), phi.rows(), phi.columns(), dz, dr,
+    //                           CathodeR, tolerance, max_iter, betta, convergence_check);
+    /*
     int Nz = phi.rows();
     int Nr = phi.columns();
     Matrix g(Nz, Nr), b(Nz, Nr);
@@ -101,20 +110,25 @@ void PoissonSolverSOR(Matrix& phi, Matrix& rho, Matrix& radii, const scalar dz, 
     for (int it = 0; it < max_iter; it++) {
         for (int i = 1; i < Nz-1; i++) {
             for (int j = 1; j < Nr-1; j++) {
-                g(i, j) = betta*((b(i, j) + (phi(i, j+1) + g(i, j-1))/dr2 + (phi(i+1, j) +
-                        g(i-1, j))/dz2 + (phi(i, j+1) - g(i, j-1))/(radii(i, j)*2*dr)) /
-                          (2/dr2 + 2/dz2)) + (1-betta)*phi(i, j);
+                g(i, j) = betta*((b(i, j) +
+                          (phi(i, j+1) + g(i, j-1))/dr2 +
+                          (phi(i+1, j) + g(i-1, j))/dz2 +
+                          (phi(i, j+1) - g(i, j-1))/(radii(i, j)*2*dr)) / (2/dr2 + 2/dz2)) +
+                                  (1-betta)*phi(i, j);
             }
         }
         // Neumann boundaries on the axis r = 0
         //cout << g(1, 1) << endl;
         for(int i = 0; i < Nz; i++) {
-            g(i, 0) = g(i, 1);
+            //g(i, 0) = g(i, 1);
+            g.data_ptr()[i*Nr] = g.data_ptr()[i*Nr+1];
         }
         // Neumann boundaries on the left/right wall
         for (int i = CathodeR; i < Nr; i++) {
-            g(0, i) = g(1, i);
-            g(Nz-1, i) = g(Nz-2, i);
+            //g(0, i) = g(1, i);
+            //g(Nz-1, i) = g(Nz-2, i);
+            g.data_ptr()[i] = g.data_ptr()[Nr+i];
+            g.data_ptr()[(Nz-1)*Nr+i] = g.data_ptr()[(Nz-2)*Nr+i];
         }
         // Dirichlet boundaries
         phi.copy(g);
@@ -124,9 +138,12 @@ void PoissonSolverSOR(Matrix& phi, Matrix& rho, Matrix& radii, const scalar dz, 
             break;
         }
     }
+    */
 }
 
 void compute_E(Matrix& Ez, Matrix& Er, Matrix& phi, const scalar dz, const scalar dr) {
+    _compute_E(Ez.data_ptr(), Er.data_ptr(), phi.data_ptr(), phi.rows(), phi.columns(), dz, dr);
+    /*
     scalar dz2 = dz*2;
     scalar dr2 = dr*2;
     // central difference, not right on walls
@@ -146,4 +163,5 @@ void compute_E(Matrix& Ez, Matrix& Er, Matrix& phi, const scalar dz, const scala
                 Er(i, j) = (phi(i, j-1) - phi(i, j)) / dr;
         }
     }
+    */
 }
