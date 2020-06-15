@@ -5,18 +5,16 @@
 #include "Pusher.h"
 #include "Interpolation.h"
 
-Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid, scalar N_per_macro,
-                     bool volume_linear_correction) {
+
+Particles::Particles(scalar m, scalar q, size_t N, const Grid& init_grid, scalar N_per_macro) {
     Ntot = N;
     if (N_per_macro > 1) {
-        mass = m * N_per_macro;
-        charge = q * N_per_macro;
         ptcls_per_macro = N_per_macro;
     } else {
-        mass = m;
-        charge = q;
         ptcls_per_macro = 1;
     }
+    mass = m * ptcls_per_macro;
+    charge = q * ptcls_per_macro;
     z.resize(N, 0);
     r.resize(N, 0);
     vz.resize(N, 0);
@@ -54,11 +52,14 @@ void Particles::generate_velocities(scalar energy, int seed) {
 void Particles::generate_positions(const array<scalar, 2> &z_bounds, const array<scalar, 2> &r_bounds,
                                    const int seed) {
     std::default_random_engine generator(seed);
-    std::uniform_real_distribution<scalar> distribution_z(z_bounds[0],z_bounds[1]);
-    std::uniform_real_distribution<scalar> distribution_r(r_bounds[0],r_bounds[1]);
+    //std::uniform_real_distribution<scalar> distribution_z(z_bounds[0],z_bounds[1]);
+    //std::uniform_real_distribution<scalar> distribution_r(r_bounds[0],r_bounds[1]);
+    std::uniform_real_distribution<scalar> uniform(0, 1);
     for (int i = 0; i < Ntot; i++) {
-        z[i] = distribution_z(generator);
-        r[i] = distribution_r(generator);
+        //z[i] = distribution_z(generator);
+        //r[i] = distribution_r(generator);
+        z[i] = z_bounds[0] + uniform_cylindrical(uniform(generator)) * (z_bounds[1] - z_bounds[0]);
+        r[i] = r_bounds[0] + uniform_cylindrical(uniform(generator)) * (r_bounds[1] - r_bounds[0]);
         if (z[i] < 0 or r[i] < 0) {
             cout << "z<0!!!!!!" << endl;
             throw;
@@ -91,8 +92,8 @@ void Particles::pusher(scalar dt) {
                  Ntot, grid.dr);
 }
 
-void Particles::init_node_volume(Matrix& node_volume) {
-    InitVolume(node_volume, grid);
+void Particles::init_node_volume(Matrix& volume) {
+    InitVolume(volume, grid);
 }
 
 void Particles::electric_field_interpolation(Matrix& Ez, Matrix& Er) {
@@ -124,11 +125,6 @@ void Particles::append(const array<scalar, 2> &position,const array<scalar, 3> &
     Ntot++;
 }
 
-void swap(scalar& a, scalar& b) {
-    scalar temp = a;
-    a = b;
-    b = temp;
-}
 
 void Particles::pop(int ptcl_idx) {
     swap(z[ptcl_idx], z[Ntot-1]);
@@ -162,7 +158,7 @@ array<scalar, 3> Particles::get_velocity(int ptcl_idx) const {
     return vel;
 }
 
-size_t Particles::get_Ntot() const {
+int Particles::get_Ntot() const {
     return Ntot;
 }
 
@@ -182,4 +178,13 @@ scalar Particles::get_charge() const {
 
 scalar Particles::get_ptcl_per_macro() const {
     return ptcls_per_macro;
+}
+
+void Particles::set_position(int ptcl_idx, array<scalar, pos_dim> position) {
+    z[ptcl_idx] = position[0];
+    r[ptcl_idx] = position[1];
+}
+
+scalar uniform_cylindrical(scalar value) {
+    return sqrt(value);
 }
