@@ -8,15 +8,15 @@ Matrix::Matrix(size_t rows, size_t columns, scalar value) : _rows(rows), _column
     data.resize(rows*columns, value);
 }
 
-size_t Matrix::rows() const { return _rows; }
+int Matrix::rows() const { return _rows; }
 
-size_t Matrix::columns() const { return _columns; }
+int Matrix::columns() const { return _columns; }
 
 scalar* Matrix::data_ptr() { return data.data(); }
 
 scalar& Matrix::operator()(size_t row, size_t column) {
     if (row >= _rows or column >= _columns) {
-        cout << "Error, index (" << row << " " << column << ") out of range (return 1st element)" << endl;
+        cout << "Error, index (" << row << " " << column << ") out of range (return NULL)" << endl;
         throw;
     }
     return data[row * _columns + column];
@@ -51,6 +51,7 @@ void Matrix::copy(Matrix& matrix) {
     for (int i = 0; i < _rows; i++) {
         for (int j = 0; j < _columns; j++) {
             this->operator()(i, j) = matrix(i, j);
+            //data[i*_columns+j] = matrix.data_ptr()[i*_columns+j];
         }
     }
 }
