@@ -13,6 +13,11 @@
 #include "Tests/Test_ElementaryProcesses.h"
 #include "Tests/Test_Logger.h"
 #include "Tests/Test_Matrix.h"
+#include "Tests/Test_SinglePtclSimulation.h"
+#include "Tests/Test_EnergyCrossSection.h"
+#include "Tests/Test_CollisionEnergyCrossSection.h"
+#include "Tests/Test_ParticlesLoad.h"
+#include "Tests/Test_SimulationEnergyCrossSection.h"
 using namespace std;
 
 
@@ -29,11 +34,17 @@ int main() {
     //test_NeutralGas();
     //test_ParticleLeave();
     //test_ParticleEmission();
-    test_Simulation();
+    //test_Simulation();
+    //test_SinglePtclSimulation();
+    //test_MonteCarloCollision();
     //test_NanbuCollisionChoice();
     //test_MonteCarloCollisions();
     //test_ElementaryProcesses();
     //test_Logger();
     //test_Matrix();
+    //test_EnergyCrossSection();
+    //test_ParticleLoad();
+    //test_CollisionEnergyCrossSection();
+    test_SimulationEnergyCrossSection();
     return 0;
 }
