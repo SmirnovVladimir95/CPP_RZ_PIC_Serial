@@ -54,7 +54,7 @@ void test_ElementaryProcesses() {
     scalar m_ion = 1e2*m_e;
     Particles ions(m_ion, 1.6e-19, Ntot, grid, ptcls_per_macro);
     scalar T_ion = 600;
-    ions.generate_velocities((3 / 2) * K_B * T_ion, 2);
+    ions.generate_velocities((3 / 2.) * K_B * T_ion, 2);
     ions.generate_positions(z_bounds, r_bounds, 2);
     ions.set_const_magnetic_field(0.1, 0);
 

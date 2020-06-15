@@ -6,7 +6,7 @@
 #include "../Grid/Grid.h"
 #include "../ElementaryProcesses/NanbuCollisions.h"
 #include <ctime>
-
+#define K_B 1.380649e-23
 
 void test_NanbuCollisionChoice() {
     cout << "test_NanbuCollisionChoice: " << endl;
@@ -33,16 +33,60 @@ void test_NanbuCollisionChoice() {
 
 void test_MonteCarloCollision() {
     cout << "test_MonteCarloCollision: ";
-    scalar n = 1e20, mAr = 6.6335209e-26, T = 500;
-    NeutralGas gas(n, mAr, T);
+
+    // Electron Elastic Collision
     scalar sigma=1e-19, dt=1e-9, mass=9.1e-31, charge=1.6e-19;
+    scalar n = 1e20, m_gas = 100*mass, T = 500;
+    NeutralGas gas(n, m_gas, T);
     size_t Ntot=1e3, Nz=100, Nr=50;
     scalar dz=2e-5, dr=2e-5;
     Grid grid(Nz, Nr, dz, dr);
-    Particles electrons(mass, charge, Ntot, grid);
-    electrons.generate_velocities(10*1.6e-19);
-    ElectronNeutralElasticCollision collisions(sigma, dt, gas, electrons);
-    cout << collisions.probability(0) << endl;
+    Particles electrons(mass, -1*charge, Ntot, grid);
+    electrons.generate_velocities(1*1.6e-19);
+    ElectronNeutralElasticCollision electron_elastic(sigma, dt, gas, electrons);
+    cout << electron_elastic.probability(0) << endl;
+    cout << "vel before collision: " <<
+    sqrt(electrons.vz[0]*electrons.vz[0] + electrons.vr[0]*electrons.vr[0] + electrons.vy[0]*electrons.vy[0]) << endl;
+    cout << electrons.vz[0] << " " << electrons.vr[0] << " " << electrons.vy[0] << endl;
+    electron_elastic.collision(0);
+    cout << "vel after collision: " <<
+    sqrt(electrons.vz[0]*electrons.vz[0] + electrons.vr[0]*electrons.vr[0] + electrons.vy[0]*electrons.vy[0]) << endl;
+    cout << electrons.vz[0] << " " << electrons.vr[0] << " " << electrons.vy[0] << endl;
+
+    // Ion Elastic Collision
+    Particles ions(m_gas, charge, Ntot, grid);
+    scalar energy = (3 / 2) * K_B * 500;
+    ions.generate_velocities(energy);
+    IonNeutralElasticCollision ion_elastic(1e-19, dt, gas, ions, true);
+    cout << ion_elastic.probability(0) << endl;
+    cout << "vel before collision: " <<
+         sqrt(ions.vz[0]*ions.vz[0] + ions.vr[0]*ions.vr[0] + ions.vy[0]*ions.vy[0]) << endl;
+    cout << ions.vz[0] << " " << ions.vr[0] << " " << ions.vy[0] << endl;
+    ion_elastic.collision(0);
+    cout << "vel after collision: " <<
+        sqrt(ions.vz[0]*ions.vz[0] + ions.vr[0]*ions.vr[0] + ions.vy[0]*ions.vy[0]) << endl;
+    cout << ions.vz[0] << " " << ions.vr[0] << " " << ions.vy[0] << endl;
+
+    // Electron Ionization
+    scalar ion_threshold = 0.1*1.6e-19, dt_collision = 1e-9;
+    Ionization gas_ionization(1e-20, ion_threshold, dt_collision, gas, electrons, ions);
+    cout << "ionization prob: " << gas_ionization.probability(0) << endl;
+    cout << "vel of incident electron before ionization: " <<
+         sqrt(electrons.vz[0]*electrons.vz[0] + electrons.vr[0]*electrons.vr[0] + electrons.vy[0]*electrons.vy[0]) << endl;
+    cout << electrons.vz[0] << " " << electrons.vr[0] << " " << electrons.vy[0] << endl;
+    gas_ionization.collision(0);
+    cout << "Ntot after ion ion/electron: " << ions.get_Ntot() << " " << electrons.get_Ntot() << endl;
+    cout << "vel of new ion after ionization: " <<
+         sqrt(ions.vz[Ntot-1]*ions.vz[Ntot-1] + ions.vr[Ntot-1]*ions.vr[Ntot-1] + ions.vy[Ntot-1]*ions.vy[Ntot-1]) << endl;
+    cout << ions.vz[Ntot-1] << " " << ions.vr[Ntot-1] << " " << ions.vy[Ntot-1] << endl;
+    cout << "vel of incident electron after ionization: " <<
+        sqrt(electrons.vz[0]*electrons.vz[0] + electrons.vr[0]*electrons.vr[0] + electrons.vy[0]*electrons.vy[0]) << endl;
+    cout << electrons.vz[0] << " " << electrons.vr[0] << " " << electrons.vy[0] << endl;
+    cout << "vel of new electron after ionization: " <<
+         sqrt(electrons.vz[Ntot-1]*electrons.vz[Ntot-1] + electrons.vr[Ntot-1]*electrons.vr[Ntot-1] +
+         electrons.vy[Ntot-1]*electrons.vy[Ntot-1]) << endl;
+    cout << electrons.vz[Ntot-1] << " " << electrons.vr[Ntot-1] << " " << electrons.vy[Ntot-1] << endl;
+
     cout << "OK" << endl;
 }
 
