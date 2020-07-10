@@ -18,6 +18,7 @@
 #include "Tests/Test_CollisionEnergyCrossSection.h"
 #include "Tests/Test_ParticlesLoad.h"
 #include "Tests/Test_SimulationEnergyCrossSection.h"
+#include "Tests/Test_ReloadSimulation.h"
 using namespace std;
 
 
@@ -46,5 +47,6 @@ int main() {
     //test_ParticleLoad();
     //test_CollisionEnergyCrossSection();
     test_SimulationEnergyCrossSection();
+    //test_ReloadSimulation();
     return 0;
 }
