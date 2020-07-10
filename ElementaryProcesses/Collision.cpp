@@ -99,7 +99,7 @@ void IonNeutralElasticCollision::collision(int ptcl_idx) {
     std::random_device rd;
     std::default_random_engine generator(rd());
     std::uniform_real_distribution<double> distribution(0, 1.0);
-    float random_num = distribution(generator);
+    float random_num;
     if (charge_exchange)
         random_num = distribution(generator);
     else
