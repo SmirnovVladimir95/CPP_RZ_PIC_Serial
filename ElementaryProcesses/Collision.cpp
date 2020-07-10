@@ -136,7 +136,6 @@ scalar IonNeutralElasticCollision::probability(int ptcl_idx) const {
         scalar energy = 0.5 * particles->get_mass() * vel_module * vel_module;
         scalar g_sigma = energy_sigma->get_cross_section(energy);
         return g_sigma * gas->n * dt;
-        throw;
     } else {
         cout << "cross section is not set!" << endl;
         throw;
