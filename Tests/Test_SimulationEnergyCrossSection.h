@@ -69,7 +69,8 @@ void test_SimulationEnergyCrossSection() {
     EnergyCrossSection ionization_sigma("../ElementaryProcesses/CrossSectionData/e-He_ionization.txt");
     ElectronNeutralElasticCollision electron_elastic(elastic_electron_sigma, dt_collision_electron, gas, electrons);
     Ionization ionization(ionization_sigma, dt_collision_electron, gas, electrons, ions);
-    scalar elastic_helium_sigma = 30 * 1e-20;
+    //scalar elastic_helium_sigma = 30 * 1e-20;
+    EnergyCrossSection elastic_helium_sigma("../ElementaryProcesses/CrossSectionData/He+-He_elastic.txt");
     IonNeutralElasticCollision ion_elastic(elastic_helium_sigma, dt_collision_ion, gas, ions);
 
     // Particle leave
@@ -129,7 +130,7 @@ void test_SimulationEnergyCrossSection() {
     Matrix Ez(Nz, Nr), Er(Nz, Nr);
 
     // PIC cycle parameters
-    int it_num = 1e3;
+    int it_num = 1e2;
     scalar dt = 5e-12;
     int collision_step_electron = dt_collision_electron / dt;
     int collision_step_ion = dt_collision_ion / dt;

@@ -30,6 +30,11 @@ void test_EnergyCrossSection() {
     assert(not new_new_cross_section.empty());
     cout << new_new_cross_section.get_cross_section(30.5*EV) << endl;
 
+    //Constructor from file for He+ - He elastic
+    EnergyCrossSection helium_elastic("../ElementaryProcesses/CrossSectionData/He+-He_elastic.txt");
+    assert(not helium_elastic.empty());
+    cout << helium_elastic.get_cross_section(5.25*EV) << endl;
+
     cout << "OK" << endl;
 }
 
