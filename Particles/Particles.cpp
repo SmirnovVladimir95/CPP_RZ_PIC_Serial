@@ -58,7 +58,8 @@ void Particles::generate_positions(const array<scalar, 2> &z_bounds, const array
     for (int i = 0; i < Ntot; i++) {
         //z[i] = distribution_z(generator);
         //r[i] = distribution_r(generator);
-        z[i] = z_bounds[0] + uniform_cylindrical(uniform(generator)) * (z_bounds[1] - z_bounds[0]);
+        //z[i] = z_bounds[0] + uniform_cylindrical(uniform(generator)) * (z_bounds[1] - z_bounds[0]);
+        z[i] = z_bounds[0] + uniform(generator) * (z_bounds[1] - z_bounds[0]);
         r[i] = r_bounds[0] + uniform_cylindrical(uniform(generator)) * (r_bounds[1] - r_bounds[0]);
         if (z[i] < 0 or r[i] < 0) {
             cout << "z<0!!!!!!" << endl;
