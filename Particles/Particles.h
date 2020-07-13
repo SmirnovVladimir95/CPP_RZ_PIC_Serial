@@ -17,13 +17,13 @@ private:
     size_t Ntot; // number of macro particles
     scalar ptcls_per_macro; // number of particles in one macro particle
     scalar mfz_const = 0, mfr_const = 0;
-    Matrix node_volume;
     void init_node_volume(Matrix& node_volume);
     scalar mass;
     scalar charge;
     static constexpr int pos_dim = 2;
     static constexpr int vel_dim = 3;
 public:
+    Matrix node_volume;
     vector<scalar> z;
     vector<scalar> r;
     vector<scalar> vz;
